@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{a224b756-404c-4e48-b878-187693e2be5e}</ProjectGuid>
+    <RootNamespace>fofemwuinity</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;FOFEMWUINITY_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;FOFEMWUINITY_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;FOFEMWUINITY_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;FOFEMWUINITY_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="source\BMSoil.h" />
+    <ClInclude Include="source\Brn_FileSw.h" />
+    <ClInclude Include="source\Brn_SFI.h" />
+    <ClInclude Include="source\bur_bov.h" />
+    <ClInclude Include="source\BUR_BRN.H" />
+    <ClInclude Include="source\CN_MatrixHMV7110.h" />
+    <ClInclude Include="source\CN_MatrixPop.h" />
+    <ClInclude Include="source\Crank.h" />
+    <ClInclude Include="source\fof_ansi.h" />
+    <ClInclude Include="source\FOF_BCM.H" />
+    <ClInclude Include="source\FOF_BOL.H" />
+    <ClInclude Include="source\fof_cct.h" />
+    <ClInclude Include="source\FOF_CI.H" />
+    <ClInclude Include="source\fof_cm.h" />
+    <ClInclude Include="source\FOF_CO.H" />
+    <ClInclude Include="source\fof_co2.h" />
+    <ClInclude Include="source\fof_disp.h" />
+    <ClInclude Include="source\FOF_DLL.H" />
+    <ClInclude Include="source\FOF_DUF.H" />
+    <ClInclude Include="source\FOF_GEN.H" />
+    <ClInclude Include="source\FOF_HSF.H" />
+    <ClInclude Include="source\fof_lcc.h" />
+    <ClInclude Include="source\fof_lem.h" />
+    <ClInclude Include="source\fof_mec.h" />
+    <ClInclude Include="source\FOF_MRT.H" />
+    <ClInclude Include="source\FOF_NES.h" />
+    <ClInclude Include="source\FOF_PF2.H" />
+    <ClInclude Include="source\FOF_SD.H" />
+    <ClInclude Include="source\FOF_SD2.H" />
+    <ClInclude Include="source\FOF_SE.H" />
+    <ClInclude Include="source\FOF_SE2.H" />
+    <ClInclude Include="source\FOF_SGV.H" />
+    <ClInclude Include="source\FOF_SH.H" />
+    <ClInclude Include="source\FOF_SH2.H" />
+    <ClInclude Include="source\FOF_SHA.H" />
+    <ClInclude Include="source\FOF_SMT.H" />
+    <ClInclude Include="source\FOF_SOI.H" />
+    <ClInclude Include="source\FOF_SPP.H" />
+    <ClInclude Include="source\FOF_UTIL.H" />
+    <ClInclude Include="source\HTAA.h" />
+    <ClInclude Include="source\Matrix.h" />
+    <ClInclude Include="source\SCN_Arrays.h" />
+    <ClInclude Include="source\targetver.h" />
+    <ClInclude Include="source\Unit_Abv.h" />
+    <ClInclude Include="source\_fof_ISS.H" />
+    <ClInclude Include="source\_win_ccwf.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\AccumulateHMV.cpp" />
+    <ClCompile Include="source\ANSI_MAI.CPP" />
+    <ClCompile Include="source\BM_Util.cpp" />
+    <ClCompile Include="source\BoundarydBFD.cpp" />
+    <ClCompile Include="source\BoundaryIR.cpp" />
+    <ClCompile Include="source\BoundaryIR_T1.cpp" />
+    <ClCompile Include="source\BoundaryLHB17dBFD.cpp" />
+    <ClCompile Include="source\BoundaryU.cpp" />
+    <ClCompile Include="source\BoundaryUBFD.cpp" />
+    <ClCompile Include="source\Brn_SFI.cpp" />
+    <ClCompile Include="source\BUR_BOV.cpp" />
+    <ClCompile Include="source\BUR_BRN - Copy.cpp" />
+    <ClCompile Include="source\BUR_BRN-Jun-1-PreHerSrb.cpp" />
+    <ClCompile Include="source\BUR_BRN.cpp" />
+    <ClCompile Include="source\calAwa.cpp" />
+    <ClCompile Include="source\calAwaP.cpp" />
+    <ClCompile Include="source\calConCoef2.cpp" />
+    <ClCompile Include="source\calConCoef5.cpp" />
+    <ClCompile Include="source\calcondry.cpp" />
+    <ClCompile Include="source\calconHMVl.cpp" />
+    <ClCompile Include="source\calconHMVll.cpp" />
+    <ClCompile Include="source\calconRAD.cpp" />
+    <ClCompile Include="source\calcp0HMV.cpp" />
+    <ClCompile Include="source\calcpaHMVNR.cpp" />
+    <ClCompile Include="source\calcsHMV.cpp" />
+    <ClCompile Include="source\calcsHMVnT.cpp" />
+    <ClCompile Include="source\caldelHMV.cpp" />
+    <ClCompile Include="source\calden2HMV.cpp" />
+    <ClCompile Include="source\calDENVEL.cpp" />
+    <ClCompile Include="source\caldiffHMVNRa.cpp" />
+    <ClCompile Include="source\caldiseq.cpp" />
+    <ClCompile Include="source\caldryvis.cpp" />
+    <ClCompile Include="source\calEBCN.cpp" />
+    <ClCompile Include="source\calepssurfHMV.cpp" />
+    <ClCompile Include="source\caleta4.cpp" />
+    <ClCompile Include="source\calgascomb.cpp" />
+    <ClCompile Include="source\calhydrauKF.cpp" />
+    <ClCompile Include="source\calhydrauVA.cpp" />
+    <ClCompile Include="source\calhydrauWRC.cpp" />
+    <ClCompile Include="source\calmaxdenwHMV.cpp" />
+    <ClCompile Include="source\calmaxmulaHMV.cpp" />
+    <ClCompile Include="source\calmaxmulaWHMV.cpp" />
+    <ClCompile Include="source\calmulaHMV.cpp" />
+    <ClCompile Include="source\calmulaWHMV.cpp" />
+    <ClCompile Include="source\calparx.cpp" />
+    <ClCompile Include="source\calprofP.cpp" />
+    <ClCompile Include="source\calpsinProf.cpp" />
+    <ClCompile Include="source\calQHCN.cpp" />
+    <ClCompile Include="source\calrhev.cpp" />
+    <ClCompile Include="source\calstefan1NR.cpp" />
+    <ClCompile Include="source\calsurfdT.cpp" />
+    <ClCompile Include="source\calSw.cpp" />
+    <ClCompile Include="source\caltempkHMV.cpp" />
+    <ClCompile Include="source\calthetaCSr.cpp" />
+    <ClCompile Include="source\calthetaFYr.cpp" />
+    <ClCompile Include="source\caluHMV.cpp" />
+    <ClCompile Include="source\calvaporHMV.cpp" />
+    <ClCompile Include="source\calVsourceGNRa.cpp" />
+    <ClCompile Include="source\calxhiv1.cpp" />
+    <ClCompile Include="source\CrankNicolson.cpp" />
+    <ClCompile Include="source\densatHMV.cpp" />
+    <ClCompile Include="source\densatmaxHMV.cpp" />
+    <ClCompile Include="source\Dry_Air_Constants_HMV.cpp" />
+    <ClCompile Include="source\DUMMY.Cpp" />
+    <ClCompile Include="source\EBcoef-Save.cpp" />
+    <ClCompile Include="source\EBcoef.cpp" />
+    <ClCompile Include="source\fof_ansi.cpp" />
+    <ClCompile Include="source\FOF_BCM.cpp" />
+    <ClCompile Include="source\FOF_BOL.cpp" />
+    <ClCompile Include="source\FOF_CI.cpp" />
+    <ClCompile Include="source\FOF_CM.cpp" />
+    <ClCompile Include="source\FOF_CO.cpp" />
+    <ClCompile Include="source\fof_disp.cpp" />
+    <ClCompile Include="source\FOF_DLL.cpp" />
+    <ClCompile Include="source\FOF_DUF.cpp" />
+    <ClCompile Include="source\FOF_HSF.cpp" />
+    <ClCompile Include="source\fof_lcc.cpp" />
+    <ClCompile Include="source\fof_lem.cpp" />
+    <ClCompile Include="source\FOF_MRT.cpp" />
+    <ClCompile Include="source\FOF_NES.cpp" />
+    <ClCompile Include="source\FOF_PF2.cpp" />
+    <ClCompile Include="source\FOF_SD.cpp" />
+    <ClCompile Include="source\fof_SDDan.cpp" />
+    <ClCompile Include="source\FOF_SE.cpp" />
+    <ClCompile Include="source\FOF_SGV.cpp" />
+    <ClCompile Include="source\FOF_SH.cpp" />
+    <ClCompile Include="source\FOF_SHA.cpp" />
+    <ClCompile Include="source\FOF_SOI.cpp" />
+    <ClCompile Include="source\fof_unix.cpp" />
+    <ClCompile Include="source\FOF_UTIL.cpp" />
+    <ClCompile Include="source\GenThomas.cpp" />
+    <ClCompile Include="source\global.cpp" />
+    <ClCompile Include="source\Glob_Data.cpp" />
+    <ClCompile Include="source\harmean.cpp" />
+    <ClCompile Include="source\HMV_Model.cpp" />
+    <ClCompile Include="source\HTAA.cpp" />
+    <ClCompile Include="source\Liquid_Water_Constants.cpp" />
+    <ClCompile Include="source\Liquid_Water_Constants_2.cpp" />
+    <ClCompile Include="source\LMS.cpp" />
+    <ClCompile Include="source\LoadQuincy1.cpp" />
+    <ClCompile Include="source\Manitou04.cpp" />
+    <ClCompile Include="source\Matrix.cpp" />
+    <ClCompile Include="source\Model_Param.cpp" />
+    <ClCompile Include="source\Model_Switch_HMV.cpp" />
+    <ClCompile Include="source\Physical_Constants_HMV.cpp" />
+    <ClCompile Include="source\PSINi.cpp" />
+    <ClCompile Include="source\PsinTmpnT.cpp" />
+    <ClCompile Include="source\Quincy1G-Save-Aug-31-2017.cpp" />
+    <ClCompile Include="source\Quincy1G.cpp" />
+    <ClCompile Include="source\rhoveqHMV.cpp" />
+    <ClCompile Include="source\SCN_Arrays.cpp" />
+    <ClCompile Include="source\Soil_Model_Data_Files_HMV.cpp" />
+    <ClCompile Include="source\Soil_Time_Depth_Param_HMV.cpp" />
+    <ClCompile Include="source\SolveHMV.cpp" />
+    <ClCompile Include="source\TryMatix.cpp" />
+    <ClCompile Include="source\vapdiffEHMV.cpp" />
+    <ClCompile Include="source\vaporTempdiff.cpp" />
+    <ClCompile Include="source\Vmult5.cpp" />
+    <ClCompile Include="source\Water_Vapor_Constants.cpp" />
+    <ClCompile Include="source\Water_Vapor_Constants_0.cpp" />
+    <ClCompile Include="source\Water_Vapor_Constants_2.cpp" />
+    <ClCompile Include="source\WesternUS01.cpp" />
+    <ClCompile Include="source\Xnew.cpp" />
+    <ClCompile Include="source\_BUR_BRN.CPP" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
