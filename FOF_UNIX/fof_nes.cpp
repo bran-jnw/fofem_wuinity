@@ -34,6 +34,8 @@
 
 #include "fof_nes.h"
 
+#include "..\config.h"
+
 /* NOTE NOTE NOTE ...................*/
 /* The are copies of functions in FOFEM and FuelCalc 'util' file functions */
 /* Things were getting messing trying to use this file for FOFEM and FuelCalc */

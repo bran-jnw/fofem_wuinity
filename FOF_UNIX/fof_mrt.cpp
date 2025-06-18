@@ -21,6 +21,8 @@
 #include "cdf_util.h"
 #include "fof_pf2.h"
 
+#include "..\config.h"
+
 
 /*.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
 /*                Post Fire Injury Eqs Codes Used in Fof_Spp.dat file        */

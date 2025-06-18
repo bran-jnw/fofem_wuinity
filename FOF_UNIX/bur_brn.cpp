@@ -19,6 +19,8 @@
 #include "unit_abv.h"
 #include "fof_ansi.h"
 
+#include "..\config.h"
+
 
 // test...........................
 float gfN_FlaCon = 0; 
@@ -3819,7 +3821,7 @@ bool _isEqual (double a, double b)
 {
 double d;
 
-  d = abs (a - b);
+  d = abs (long(a - b));
  
   if ( d < 1.0 )   // was 0.2
     return true;
