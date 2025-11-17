@@ -308,6 +308,7 @@ SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_FOFEM(SWIG_CSharpStringHe
 	#include "..\FOF_DLL\FOF_CI.H"
 	#include "..\FOF_DLL\FOF_CO.H"
 	#include "..\FOF_DLL\FOF_SH.H"
+	#include "..\FOF_DLL\FOF_NES.H"
 
 
 #include <string.h>
@@ -7709,6 +7710,156 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_SH_Mngr(void * jarg1, void * jarg2, void
   arg5 = (char *)jarg5; 
   arg6 = (char *)jarg6; 
   result = (int)SH_Mngr(arg1,arg2,arg3,arg4,arg5,arg6);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_CriInt_get() {
+  double jresult ;
+  double result;
+  
+  result = (double)(15.0);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_EmiFN_get() {
+  char * jresult ;
+  char *result = 0 ;
+  
+  result = (char *)(char *)("Emission_Factors.csv");
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_DefFlaGrp_get() {
+  char * jresult ;
+  char *result = 0 ;
+  
+  result = (char *)(char *)("3");
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_DefDufGrp_get() {
+  char * jresult ;
+  char *result = 0 ;
+  
+  result = (char *)(char *)("8");
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_DefSmoGrp_get() {
+  char * jresult ;
+  char *result = 0 ;
+  
+  result = (char *)(char *)("7");
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_NES_Read(char * jarg1, char * jarg2) {
+  int jresult ;
+  char *arg1 = (char *)0 ;
+  char *arg2 = (char *)0 ;
+  int result;
+  
+  arg1 = (char *)jarg1; 
+  arg2 = (char *)jarg2; 
+  result = (int)NES_Read(arg1,arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_NES_Get_Factor(char * jarg1, int jarg2, char * jarg3, void * jarg4, char * jarg5, char * jarg6) {
+  int jresult ;
+  char *arg1 = (char *)0 ;
+  int arg2 ;
+  char *arg3 = (char *)0 ;
+  float *arg4 = 0 ;
+  char *arg5 = (char *)0 ;
+  char *arg6 = (char *)0 ;
+  int result;
+  
+  arg1 = (char *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (char *)jarg3; 
+  arg4 = (float *)jarg4; 
+  arg5 = (char *)jarg5; 
+  arg6 = (char *)jarg6; 
+  result = (int)NES_Get_Factor(arg1,arg2,arg3,arg4,arg5,arg6);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_NCT_Display() {
+  NCT_Display();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_NES_Display() {
+  NES_Display();
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_NES_GetGrpCov(int jarg1, char * jarg2, char * jarg3, void * jarg4) {
+  int jresult ;
+  int arg1 ;
+  char *arg2 = (char *)0 ;
+  char *arg3 = (char *)0 ;
+  int *arg4 = 0 ;
+  int result;
+  
+  arg1 = (int)jarg1; 
+  arg2 = (char *)jarg2; 
+  arg3 = (char *)jarg3; 
+  arg4 = (int *)jarg4; 
+  result = (int)NES_GetGrpCov(arg1,arg2,arg3,arg4);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_NES_Get_MajFactor(char * jarg1, void * jarg2, void * jarg3, void * jarg4, void * jarg5, void * jarg6, void * jarg7, void * jarg8) {
+  int jresult ;
+  char *arg1 = (char *)0 ;
+  float *arg2 = 0 ;
+  float *arg3 = 0 ;
+  float *arg4 = 0 ;
+  float *arg5 = 0 ;
+  float *arg6 = 0 ;
+  float *arg7 = 0 ;
+  float *arg8 = 0 ;
+  int result;
+  
+  arg1 = (char *)jarg1; 
+  arg2 = (float *)jarg2; 
+  arg3 = (float *)jarg3; 
+  arg4 = (float *)jarg4; 
+  arg5 = (float *)jarg5; 
+  arg6 = (float *)jarg6; 
+  arg7 = (float *)jarg7; 
+  arg8 = (float *)jarg8; 
+  result = (int)NES_Get_MajFactor(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_NES_Get_CriFirInt() {
+  float jresult ;
+  float result;
+  
+  result = (float)NES_Get_CriFirInt();
   jresult = result; 
   return jresult;
 }

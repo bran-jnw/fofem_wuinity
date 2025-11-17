@@ -2228,6 +2228,42 @@ class FOFEMPINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("FOFEM", EntryPoint="CSharp_FOFEM_SH_Mngr")]
   public static extern int SH_Mngr(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4, string jarg5, string jarg6);
+
+  [global::System.Runtime.InteropServices.DllImport("FOFEM", EntryPoint="CSharp_FOFEM_e_CriInt_get")]
+  public static extern double e_CriInt_get();
+
+  [global::System.Runtime.InteropServices.DllImport("FOFEM", EntryPoint="CSharp_FOFEM_e_EmiFN_get")]
+  public static extern string e_EmiFN_get();
+
+  [global::System.Runtime.InteropServices.DllImport("FOFEM", EntryPoint="CSharp_FOFEM_e_DefFlaGrp_get")]
+  public static extern string e_DefFlaGrp_get();
+
+  [global::System.Runtime.InteropServices.DllImport("FOFEM", EntryPoint="CSharp_FOFEM_e_DefDufGrp_get")]
+  public static extern string e_DefDufGrp_get();
+
+  [global::System.Runtime.InteropServices.DllImport("FOFEM", EntryPoint="CSharp_FOFEM_e_DefSmoGrp_get")]
+  public static extern string e_DefSmoGrp_get();
+
+  [global::System.Runtime.InteropServices.DllImport("FOFEM", EntryPoint="CSharp_FOFEM_NES_Read")]
+  public static extern int NES_Read(string jarg1, string jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("FOFEM", EntryPoint="CSharp_FOFEM_NES_Get_Factor")]
+  public static extern int NES_Get_Factor(string jarg1, int jarg2, string jarg3, global::System.Runtime.InteropServices.HandleRef jarg4, string jarg5, string jarg6);
+
+  [global::System.Runtime.InteropServices.DllImport("FOFEM", EntryPoint="CSharp_FOFEM_NCT_Display")]
+  public static extern void NCT_Display();
+
+  [global::System.Runtime.InteropServices.DllImport("FOFEM", EntryPoint="CSharp_FOFEM_NES_Display")]
+  public static extern void NES_Display();
+
+  [global::System.Runtime.InteropServices.DllImport("FOFEM", EntryPoint="CSharp_FOFEM_NES_GetGrpCov")]
+  public static extern int NES_GetGrpCov(int jarg1, string jarg2, string jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("FOFEM", EntryPoint="CSharp_FOFEM_NES_Get_MajFactor")]
+  public static extern int NES_Get_MajFactor(string jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4, global::System.Runtime.InteropServices.HandleRef jarg5, global::System.Runtime.InteropServices.HandleRef jarg6, global::System.Runtime.InteropServices.HandleRef jarg7, global::System.Runtime.InteropServices.HandleRef jarg8);
+
+  [global::System.Runtime.InteropServices.DllImport("FOFEM", EntryPoint="CSharp_FOFEM_NES_Get_CriFirInt")]
+  public static extern float NES_Get_CriFirInt();
 }
 
 }

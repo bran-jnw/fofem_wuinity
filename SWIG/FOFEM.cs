@@ -210,6 +210,39 @@ public class FOFEM {
     return ret;
   }
 
+  public static int NES_Read(string cr_Path, string cr_ErrMes) {
+    int ret = FOFEMPINVOKE.NES_Read(cr_Path, cr_ErrMes);
+    return ret;
+  }
+
+  public static int NES_Get_Factor(string cr_GrpNum, int ix, string cr_CovTyp, SWIGTYPE_p_float af_Factor, string cr_Name, string cr_Code) {
+    int ret = FOFEMPINVOKE.NES_Get_Factor(cr_GrpNum, ix, cr_CovTyp, SWIGTYPE_p_float.getCPtr(af_Factor), cr_Name, cr_Code);
+    return ret;
+  }
+
+  public static void NCT_Display() {
+    FOFEMPINVOKE.NCT_Display();
+  }
+
+  public static void NES_Display() {
+    FOFEMPINVOKE.NES_Display();
+  }
+
+  public static int NES_GetGrpCov(int ix, string cr_GrpNum, string cr_CovTyp, SWIGTYPE_p_int aiS_Def) {
+    int ret = FOFEMPINVOKE.NES_GetGrpCov(ix, cr_GrpNum, cr_CovTyp, SWIGTYPE_p_int.getCPtr(aiS_Def));
+    return ret;
+  }
+
+  public static int NES_Get_MajFactor(string cr_GrpNum, SWIGTYPE_p_float CO, SWIGTYPE_p_float CO2, SWIGTYPE_p_float CH4, SWIGTYPE_p_float PM25, SWIGTYPE_p_float PM10, SWIGTYPE_p_float NOX, SWIGTYPE_p_float SO2) {
+    int ret = FOFEMPINVOKE.NES_Get_MajFactor(cr_GrpNum, SWIGTYPE_p_float.getCPtr(CO), SWIGTYPE_p_float.getCPtr(CO2), SWIGTYPE_p_float.getCPtr(CH4), SWIGTYPE_p_float.getCPtr(PM25), SWIGTYPE_p_float.getCPtr(PM10), SWIGTYPE_p_float.getCPtr(NOX), SWIGTYPE_p_float.getCPtr(SO2));
+    return ret;
+  }
+
+  public static float NES_Get_CriFirInt() {
+    float ret = FOFEMPINVOKE.NES_Get_CriFirInt();
+    return ret;
+  }
+
   public static readonly double e_DufMin = FOFEMPINVOKE.e_DufMin_get();
   public static readonly double e_DufMax = FOFEMPINVOKE.e_DufMax_get();
   public static readonly double e_DufDepMin = FOFEMPINVOKE.e_DufDepMin_get();
@@ -329,6 +362,11 @@ public class FOFEM {
   public static readonly int e_LayNone = FOFEMPINVOKE.e_LayNone_get();
   public static readonly string e_SM_Duff = FOFEMPINVOKE.e_SM_Duff_get();
   public static readonly string e_SM_ZDuff = FOFEMPINVOKE.e_SM_ZDuff_get();
+  public static readonly double e_CriInt = FOFEMPINVOKE.e_CriInt_get();
+  public static readonly string e_EmiFN = FOFEMPINVOKE.e_EmiFN_get();
+  public static readonly string e_DefFlaGrp = FOFEMPINVOKE.e_DefFlaGrp_get();
+  public static readonly string e_DefDufGrp = FOFEMPINVOKE.e_DefDufGrp_get();
+  public static readonly string e_DefSmoGrp = FOFEMPINVOKE.e_DefSmoGrp_get();
 }
 
 }
