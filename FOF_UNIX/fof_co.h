@@ -1,3 +1,5 @@
+#include "fof_sgv.h"
+
 extern "C" {
 #pragma once 
 
@@ -194,8 +196,8 @@ double  d_so2f,  d_so2s;
 
 
 /* Change 3-1-11  add */
-  d_SGV sr_SGV[eC_SGV]; 
-  int iC_SGV;  /* if a user doesn't have access to eC_SGV, use this, max array sixe */
+d_SGV sr_SGV[eC_SGV]; 
+int iC_SGV;  /* if a user doesn't have access to eC_SGV, use this, max array sixe */
 
 
 /*.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.*/
@@ -223,4 +225,6 @@ float fr_SFIhs[eC_sfi + 1];     /* Herb Shrub */
 
 
 } d_CO;
+
+void  CO_Init(d_CO* a_CO);
 }

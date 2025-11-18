@@ -8,7 +8,7 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace FOFEM {
+namespace FOFEMcore {
 
 public class SWIGTYPE_p_int {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;

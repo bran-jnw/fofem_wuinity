@@ -16,3 +16,12 @@ add_executable(fofem ${CPP_FILES})
 file(GLOB CPP_LIB_FILES FOF_UNIX/*.cpp)
 
 add_library(fofem_debug_c SHARED ${CPP_LIB_FILES})
+
+file(GLOB SOURCES FOF_UNIX/*.cpp)
+file(GLOB HEADERS FOF_UNIX/*.h)
+add_library(FOFEMd 
+	SHARED
+	${SOURCES}
+	SWIG/fofem_csharp_wrap.cxx
+	${HEADERS}) 
+TARGET_LINK_LIBRARIES(FOFEMd)
