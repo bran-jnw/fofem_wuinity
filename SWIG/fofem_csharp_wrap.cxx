@@ -305,10 +305,60 @@ SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_FOFEM(SWIG_CSharpStringHe
 #define SWIG_contract_assert(nullreturn, expr, msg) do { if (!(expr)) {SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentOutOfRangeException, msg, ""); return nullreturn; } } while (0)
 
 
-	#include "..\FOF_DLL\FOF_CI.H"
-	#include "..\FOF_DLL\FOF_CO.H"
-	#include "..\FOF_DLL\FOF_SH.H"
-	#include "..\FOF_DLL\FOF_NES.H"
+#ifdef __cplusplus
+#include <utility>
+/* SwigValueWrapper is described in swig.swg */
+template<typename T> class SwigValueWrapper {
+  struct SwigSmartPointer {
+    T *ptr;
+    SwigSmartPointer(T *p) : ptr(p) { }
+    ~SwigSmartPointer() { delete ptr; }
+    SwigSmartPointer& operator=(SwigSmartPointer& rhs) { T* oldptr = ptr; ptr = 0; delete oldptr; ptr = rhs.ptr; rhs.ptr = 0; return *this; }
+    void reset(T *p) { T* oldptr = ptr; ptr = 0; delete oldptr; ptr = p; }
+  } pointer;
+  SwigValueWrapper& operator=(const SwigValueWrapper<T>& rhs);
+  SwigValueWrapper(const SwigValueWrapper<T>& rhs);
+public:
+  SwigValueWrapper() : pointer(0) { }
+  SwigValueWrapper& operator=(const T& t) { SwigSmartPointer tmp(new T(t)); pointer = tmp; return *this; }
+#if __cplusplus >=201103L
+  SwigValueWrapper& operator=(T&& t) { SwigSmartPointer tmp(new T(std::move(t))); pointer = tmp; return *this; }
+  operator T&&() const { return std::move(*pointer.ptr); }
+#else
+  operator T&() const { return *pointer.ptr; }
+#endif
+  T *operator&() const { return pointer.ptr; }
+  static void reset(SwigValueWrapper& t, T *p) { t.pointer.reset(p); }
+};
+
+/*
+ * SwigValueInit() is a generic initialisation solution as the following approach:
+ * 
+ *       T c_result = T();
+ * 
+ * doesn't compile for all types for example:
+ * 
+ *       unsigned int c_result = unsigned int();
+ */
+template <typename T> T SwigValueInit() {
+  return T();
+}
+
+#if __cplusplus >=201103L
+# define SWIG_STD_MOVE(OBJ) std::move(OBJ)
+#else
+# define SWIG_STD_MOVE(OBJ) OBJ
+#endif
+
+#endif
+
+
+	#include "..\FOF_UNIX\FOF_CI.H"
+	#include "..\FOF_UNIX\FOF_CO.H"
+	#include "..\FOF_UNIX\FOF_SH.H"
+	#include "..\FOF_UNIX\FOF_NES.H"
+	#include "..\FOF_UNIX\FOF_SGV.H"
+	#include "..\FOF_UNIX\FOF_CM.H"
 
 
 #include <string.h>
@@ -318,7 +368,7 @@ SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_FOFEM(SWIG_CSharpStringHe
 extern "C" {
 #endif
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_DufMin_get() {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_e_DufMin_get() {
   double jresult ;
   double result;
   
@@ -328,7 +378,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_DufMin_get() {
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_DufMax_get() {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_e_DufMax_get() {
   double jresult ;
   double result;
   
@@ -338,7 +388,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_DufMax_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Duff_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Duff_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -348,7 +398,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Duff_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Duff_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Duff_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -360,7 +410,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Duff_get(void * jarg1) {
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_DufDepMin_get() {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_e_DufDepMin_get() {
   double jresult ;
   double result;
   
@@ -370,7 +420,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_DufDepMin_get() {
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_DufDepMax_get() {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_e_DufDepMax_get() {
   double jresult ;
   double result;
   
@@ -380,7 +430,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_DufDepMax_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_DufDep_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_DufDep_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -390,7 +440,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_DufDep_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_DufDep_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_DufDep_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -402,7 +452,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_DufDep_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_MoistDuff_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_MoistDuff_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -412,7 +462,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_MoistDuff_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_MoistDuff_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_MoistDuff_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -424,7 +474,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_MoistDuff_get(void * jarg1) {
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_MoiDW10Min_get() {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_e_MoiDW10Min_get() {
   double jresult ;
   double result;
   
@@ -434,7 +484,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_MoiDW10Min_get() {
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_MoiDW10Max_get() {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_e_MoiDW10Max_get() {
   double jresult ;
   double result;
   
@@ -444,7 +494,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_MoiDW10Max_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_MoistDW10_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_MoistDW10_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -454,7 +504,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_MoistDW10_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_MoistDW10_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_MoistDW10_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -466,7 +516,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_MoistDW10_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_MoistDW1000_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_MoistDW1000_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -476,7 +526,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_MoistDW1000_set(void * jarg1, fl
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_MoistDW1000_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_MoistDW1000_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -488,7 +538,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_MoistDW1000_get(void * jarg1) {
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_LitMoiMin_get() {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_e_LitMoiMin_get() {
   double jresult ;
   double result;
   
@@ -498,7 +548,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_LitMoiMin_get() {
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_LitMoiMax_get() {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_e_LitMoiMax_get() {
   double jresult ;
   double result;
   
@@ -508,7 +558,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_LitMoiMax_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_LitMoi_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_LitMoi_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -518,7 +568,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_LitMoi_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_LitMoi_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_LitMoi_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -530,7 +580,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_LitMoi_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Lit_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Lit_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -540,7 +590,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Lit_set(void * jarg1, float jarg
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Lit_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Lit_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -552,7 +602,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Lit_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_DW1_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_DW1_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -562,7 +612,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_DW1_set(void * jarg1, float jarg
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_DW1_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_DW1_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -574,7 +624,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_DW1_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_DW10_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_DW10_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -584,7 +634,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_DW10_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_DW10_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_DW10_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -596,7 +646,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_DW10_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_DW100_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_DW100_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -606,7 +656,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_DW100_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_DW100_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_DW100_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -618,7 +668,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_DW100_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_DW1000_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_DW1000_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -628,7 +678,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_DW1000_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_DW1000_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_DW1000_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -640,7 +690,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_DW1000_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_pcRot_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_pcRot_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -650,7 +700,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_pcRot_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_pcRot_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_pcRot_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -662,7 +712,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_pcRot_get(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_WD_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_eC_WD_get() {
   int jresult ;
   int result;
   
@@ -672,7 +722,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_WD_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_WD_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_WD_set(void * jarg1, char * jarg2) {
   d_CI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -689,7 +739,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_WD_set(void * jarg1, char * jar
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_WD_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_WD_get(void * jarg1) {
   char * jresult ;
   d_CI *arg1 = 0 ;
   char *result = 0 ;
@@ -701,7 +751,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_WD_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Snd_DW3_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Snd_DW3_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -711,7 +761,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Snd_DW3_set(void * jarg1, float 
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Snd_DW3_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Snd_DW3_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -723,7 +773,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Snd_DW3_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Snd_DW6_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Snd_DW6_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -733,7 +783,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Snd_DW6_set(void * jarg1, float 
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Snd_DW6_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Snd_DW6_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -745,7 +795,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Snd_DW6_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Snd_DW9_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Snd_DW9_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -755,7 +805,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Snd_DW9_set(void * jarg1, float 
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Snd_DW9_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Snd_DW9_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -767,7 +817,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Snd_DW9_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Snd_DW20_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Snd_DW20_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -777,7 +827,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Snd_DW20_set(void * jarg1, float
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Snd_DW20_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Snd_DW20_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -789,7 +839,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Snd_DW20_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Rot_DW3_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Rot_DW3_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -799,7 +849,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Rot_DW3_set(void * jarg1, float 
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Rot_DW3_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Rot_DW3_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -811,7 +861,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Rot_DW3_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Rot_DW6_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Rot_DW6_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -821,7 +871,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Rot_DW6_set(void * jarg1, float 
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Rot_DW6_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Rot_DW6_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -833,7 +883,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Rot_DW6_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Rot_DW9_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Rot_DW9_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -843,7 +893,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Rot_DW9_set(void * jarg1, float 
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Rot_DW9_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Rot_DW9_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -855,7 +905,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Rot_DW9_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Rot_DW20_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Rot_DW20_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -865,7 +915,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Rot_DW20_set(void * jarg1, float
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Rot_DW20_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Rot_DW20_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -877,7 +927,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Rot_DW20_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_CroFol_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_CroFol_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -887,7 +937,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_CroFol_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_CroFol_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_CroFol_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -899,7 +949,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_CroFol_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_CroBra_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_CroBra_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -909,7 +959,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_CroBra_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_CroBra_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_CroBra_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -921,7 +971,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_CroBra_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Pc_CroBrn_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Pc_CroBrn_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -931,7 +981,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Pc_CroBrn_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Pc_CroBrn_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Pc_CroBrn_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -943,7 +993,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Pc_CroBrn_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Herb_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Herb_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -953,7 +1003,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Herb_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Herb_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Herb_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -965,7 +1015,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Herb_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Shrub_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Shrub_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -975,7 +1025,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_Shrub_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Shrub_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_Shrub_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -987,7 +1037,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_Shrub_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_HSFCon_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_HSFCon_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -997,7 +1047,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_HSFCon_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_HSFCon_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_HSFCon_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1009,7 +1059,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_HSFCon_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_PerDufCon_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_PerDufCon_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1019,7 +1069,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_PerDufCon_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_PerDufCon_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_PerDufCon_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1031,7 +1081,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_PerDufCon_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_LoadFN_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_LoadFN_set(void * jarg1, char * jarg2) {
   d_CI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -1048,7 +1098,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_LoadFN_set(void * jarg1, char *
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_LoadFN_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_LoadFN_get(void * jarg1) {
   char * jresult ;
   d_CI *arg1 = 0 ;
   char *result = 0 ;
@@ -1060,7 +1110,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_LoadFN_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiFN_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_EmiFN_set(void * jarg1, char * jarg2) {
   d_CI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -1077,7 +1127,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiFN_set(void * jarg1, char * 
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiFN_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_EmiFN_get(void * jarg1) {
   char * jresult ;
   d_CI *arg1 = 0 ;
   char *result = 0 ;
@@ -1089,7 +1139,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiFN_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_Lit_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_SURat_Lit_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1099,7 +1149,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_Lit_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_Lit_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_SURat_Lit_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1111,7 +1161,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_Lit_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DW1_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_SURat_DW1_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1121,7 +1171,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DW1_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DW1_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_SURat_DW1_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1133,7 +1183,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DW1_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DW10_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_SURat_DW10_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1143,7 +1193,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DW10_set(void * jarg1, flo
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DW10_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_SURat_DW10_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1155,7 +1205,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DW10_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DW100_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_SURat_DW100_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1165,7 +1215,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DW100_set(void * jarg1, fl
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DW100_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_SURat_DW100_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1177,7 +1227,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DW100_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DWk_3_6_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_SURat_DWk_3_6_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1187,7 +1237,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DWk_3_6_set(void * jarg1, 
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DWk_3_6_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_SURat_DWk_3_6_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1199,7 +1249,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DWk_3_6_get(void * jarg1)
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DWk_6_9_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_SURat_DWk_6_9_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1209,7 +1259,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DWk_6_9_set(void * jarg1, 
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DWk_6_9_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_SURat_DWk_6_9_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1221,7 +1271,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DWk_6_9_get(void * jarg1)
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DWk_9_20_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_SURat_DWk_9_20_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1231,7 +1281,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DWk_9_20_set(void * jarg1,
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DWk_9_20_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_SURat_DWk_9_20_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1243,7 +1293,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DWk_9_20_get(void * jarg1
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DWk_20_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_SURat_DWk_20_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1253,7 +1303,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DWk_20_set(void * jarg1, f
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DWk_20_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_SURat_DWk_20_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1265,7 +1315,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_SURat_DWk_20_get(void * jarg1) 
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_l_MAX_TIMES_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_l_MAX_TIMES_set(void * jarg1, int jarg2) {
   d_CI *arg1 = 0 ;
   long arg2 ;
   
@@ -1275,7 +1325,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_l_MAX_TIMES_set(void * jarg1, int 
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CI_l_MAX_TIMES_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_l_MAX_TIMES_get(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   long result;
@@ -1287,7 +1337,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CI_l_MAX_TIMES_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_INTENSITY_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_INTENSITY_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1297,7 +1347,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_INTENSITY_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_INTENSITY_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_INTENSITY_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1309,7 +1359,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_INTENSITY_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_IG_TIME_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_IG_TIME_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1319,7 +1369,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_IG_TIME_set(void * jarg1, float 
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_IG_TIME_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_IG_TIME_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1331,7 +1381,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_IG_TIME_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_WINDSPEED_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_WINDSPEED_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1341,7 +1391,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_WINDSPEED_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_WINDSPEED_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_WINDSPEED_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1353,7 +1403,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_WINDSPEED_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_DEPTH_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_DEPTH_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1363,7 +1413,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_DEPTH_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_DEPTH_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_DEPTH_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1375,7 +1425,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_DEPTH_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_AMBIENT_TEMP_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_AMBIENT_TEMP_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1385,7 +1435,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_AMBIENT_TEMP_set(void * jarg1, f
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_AMBIENT_TEMP_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_AMBIENT_TEMP_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1397,7 +1447,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_AMBIENT_TEMP_get(void * jarg1) 
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_R0_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_R0_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1407,7 +1457,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_R0_set(void * jarg1, float jarg2
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_R0_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_R0_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1419,7 +1469,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_R0_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_DR_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_DR_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1429,7 +1479,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_DR_set(void * jarg1, float jarg2
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_DR_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_DR_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1441,7 +1491,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_DR_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_TIMESTEP_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_TIMESTEP_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -1451,7 +1501,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_TIMESTEP_set(void * jarg1, float
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_TIMESTEP_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_TIMESTEP_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -1463,7 +1513,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_TIMESTEP_get(void * jarg1) {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_GrassGroup_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_GrassGroup_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1473,7 +1523,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_GrassGroup_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_SageBrush_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_SageBrush_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1483,7 +1533,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_SageBrush_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_ShrubGroup_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_ShrubGroup_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1493,7 +1543,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_ShrubGroup_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_ShrubGroupChaparral_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_ShrubGroupChaparral_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1503,7 +1553,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_ShrubGroupChaparral_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Pocosin_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_Pocosin_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1513,7 +1563,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Pocosin_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Ponderosa_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_Ponderosa_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1523,7 +1573,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Ponderosa_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_WhiPinHem_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_WhiPinHem_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1533,7 +1583,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_WhiPinHem_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_RedJacPin_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_RedJacPin_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1543,7 +1593,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_RedJacPin_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_BalBRWSpr_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_BalBRWSpr_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1553,7 +1603,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_BalBRWSpr_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_PinFlaWoo_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_PinFlaWoo_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1563,7 +1613,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_PinFlaWoo_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CoastPlain_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CoastPlain_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1573,7 +1623,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CoastPlain_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_GrassGroup_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CVT_GrassGroup_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1583,7 +1633,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_GrassGroup_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_SageBrush_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CVT_SageBrush_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1593,7 +1643,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_SageBrush_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_ShrubGroup_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CVT_ShrubGroup_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1603,7 +1653,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_ShrubGroup_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_ShrubGroupChaparral_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CVT_ShrubGroupChaparral_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1613,7 +1663,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_ShrubGroupChaparral_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_Pocosin_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CVT_Pocosin_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1623,7 +1673,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_Pocosin_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_Ponderosa_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CVT_Ponderosa_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1633,7 +1683,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_Ponderosa_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_WhiPinHem_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CVT_WhiPinHem_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1643,7 +1693,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_WhiPinHem_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_RedJacPin_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CVT_RedJacPin_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1653,7 +1703,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_RedJacPin_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_BalBRWSpr_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CVT_BalBRWSpr_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1663,7 +1713,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_BalBRWSpr_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_PinFlaWoo_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CVT_PinFlaWoo_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1673,7 +1723,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_PinFlaWoo_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_CoastPlain_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CVT_CoastPlain_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1683,7 +1733,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CVT_CoastPlain_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_GRASSGROUP_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_GRASSGROUP_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1693,7 +1743,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_GRASSGROUP_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_SAGEBRUSH_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_SAGEBRUSH_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1703,7 +1753,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_SAGEBRUSH_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_SHRUBGROUP_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_SHRUBGROUP_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1713,7 +1763,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_SHRUBGROUP_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_POCOSIN_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_POCOSIN_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1723,7 +1773,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_POCOSIN_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_PONDEROSA_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_PONDEROSA_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1733,7 +1783,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_PONDEROSA_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_WHIPINHEM_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_WHIPINHEM_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1743,7 +1793,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_WHIPINHEM_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_REDJACPIN_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_REDJACPIN_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1753,7 +1803,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_REDJACPIN_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_BALBRWSPR_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_BALBRWSPR_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1763,7 +1813,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_BALBRWSPR_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_PINFLAWOO_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_PINFLAWOO_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1773,7 +1823,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_PINFLAWOO_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_COASTPLAIN_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_COASTPLAIN_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1783,7 +1833,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_COASTPLAIN_get() {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_CoverGroup_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_eC_CoverGroup_get() {
   int jresult ;
   int result;
   
@@ -1793,7 +1843,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_CoverGroup_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_CoverGroup_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_CoverGroup_set(void * jarg1, char * jarg2) {
   d_CI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -1810,7 +1860,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_CoverGroup_set(void * jarg1, ch
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_CoverGroup_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_CoverGroup_get(void * jarg1) {
   char * jresult ;
   d_CI *arg1 = 0 ;
   char *result = 0 ;
@@ -1822,7 +1872,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_CoverGroup_get(void * jarg1) 
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_SAF_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CI_SAF_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1832,7 +1882,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_SAF_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_NVCS_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CI_NVCS_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1842,7 +1892,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_NVCS_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_FCC_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CI_FCC_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1852,7 +1902,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_FCC_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_FLM_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CI_FLM_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1862,7 +1912,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_FLM_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_DefaultCoverClass_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CI_DefaultCoverClass_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1872,7 +1922,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_DefaultCoverClass_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_CoverClass_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_CoverClass_set(void * jarg1, char * jarg2) {
   d_CI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -1889,7 +1939,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_CoverClass_set(void * jarg1, ch
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_CoverClass_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_CoverClass_get(void * jarg1) {
   char * jresult ;
   d_CI *arg1 = 0 ;
   char *result = 0 ;
@@ -1901,7 +1951,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_CoverClass_get(void * jarg1) 
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Winter_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_Winter_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1911,7 +1961,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Winter_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Spring_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_Spring_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1921,7 +1971,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Spring_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Summer_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_Summer_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1931,7 +1981,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Summer_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Fall_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_Fall_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1941,7 +1991,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Fall_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_WINTER_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_WINTER_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1951,7 +2001,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_WINTER_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_SPRING_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_SPRING_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1961,7 +2011,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_SPRING_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_SUMMER_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_SUMMER_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1971,7 +2021,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_SUMMER_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_FALL_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_FALL_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1981,7 +2031,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_FALL_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_SeasonDefault_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_SeasonDefault_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -1991,7 +2041,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_SeasonDefault_get() {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_Season_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_eC_Season_get() {
   int jresult ;
   int result;
   
@@ -2001,7 +2051,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_Season_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_Season_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_Season_set(void * jarg1, char * jarg2) {
   d_CI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -2018,7 +2068,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_Season_set(void * jarg1, char *
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_Season_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_Season_get(void * jarg1) {
   char * jresult ;
   d_CI *arg1 = 0 ;
   char *result = 0 ;
@@ -2030,7 +2080,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_Season_get(void * jarg1) {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_SouthEast_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CI_SouthEast_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2040,7 +2090,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_SouthEast_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_InteriorWest_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CI_InteriorWest_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2050,7 +2100,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_InteriorWest_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_PacificWest_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CI_PacificWest_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2060,7 +2110,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_PacificWest_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_NorthEast_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CI_NorthEast_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2070,7 +2120,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CI_NorthEast_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_SOUTHEAST_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_SOUTHEAST_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2080,7 +2130,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_SOUTHEAST_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_INTERIORWEST_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_INTERIORWEST_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2090,7 +2140,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_INTERIORWEST_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_PACIFICWEST_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_PACIFICWEST_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2100,7 +2150,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_PACIFICWEST_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_NORTHEAST_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_NORTHEAST_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2110,7 +2160,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_NORTHEAST_get() {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_Region_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_eC_Region_get() {
   int jresult ;
   int result;
   
@@ -2120,7 +2170,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_Region_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_Region_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_Region_set(void * jarg1, char * jarg2) {
   d_CI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -2137,7 +2187,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_Region_set(void * jarg1, char *
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_Region_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_Region_get(void * jarg1) {
   char * jresult ;
   d_CI *arg1 = 0 ;
   char *result = 0 ;
@@ -2149,7 +2199,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_Region_get(void * jarg1) {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Natural_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_Natural_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2159,7 +2209,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Natural_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Piles_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_Piles_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2169,7 +2219,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Piles_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Slash_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_Slash_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2179,7 +2229,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Slash_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_NATURAL_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_NATURAL_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2189,7 +2239,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_NATURAL_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_PILES_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_PILES_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2199,7 +2249,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_PILES_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_SLASH_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_SLASH_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2209,7 +2259,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_SLASH_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_FuelCategoryDefault_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_FuelCategoryDefault_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2219,7 +2269,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_FuelCategoryDefault_get() {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_FuelCategory_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_eC_FuelCategory_get() {
   int jresult ;
   int result;
   
@@ -2229,7 +2279,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_FuelCategory_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_FuelCategory_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_FuelCategory_set(void * jarg1, char * jarg2) {
   d_CI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -2246,7 +2296,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_FuelCategory_set(void * jarg1, 
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_FuelCategory_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_FuelCategory_get(void * jarg1) {
   char * jresult ;
   d_CI *arg1 = 0 ;
   char *result = 0 ;
@@ -2258,7 +2308,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_FuelCategory_get(void * jarg1
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Entire_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_Entire_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2268,7 +2318,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Entire_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Lower_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_Lower_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2278,7 +2328,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Lower_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_NFDR_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_NFDR_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2288,7 +2338,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_NFDR_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Adj_NFDR_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_Adj_NFDR_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2298,7 +2348,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Adj_NFDR_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_ENTIRE_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ENTIRE_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2308,7 +2358,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_ENTIRE_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_LOWER_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_LOWER_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2318,7 +2368,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_LOWER_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_NFDR_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_NFDR_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2328,7 +2378,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_NFDR_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_ADJ_NFDR_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ADJ_NFDR_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2338,7 +2388,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_ADJ_NFDR_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_DufMoiMetDefault_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_DufMoiMetDefault_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -2348,7 +2398,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_DufMoiMetDefault_get() {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_DufMoiMet_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_eC_DufMoiMet_get() {
   int jresult ;
   int result;
   
@@ -2358,7 +2408,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_DufMoiMet_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_DufMoiMet_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_DufMoiMet_set(void * jarg1, char * jarg2) {
   d_CI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -2375,7 +2425,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_DufMoiMet_set(void * jarg1, cha
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_DufMoiMet_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_DufMoiMet_get(void * jarg1) {
   char * jresult ;
   d_CI *arg1 = 0 ;
   char *result = 0 ;
@@ -2387,7 +2437,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_DufMoiMet_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiFla_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_EmiFla_set(void * jarg1, char * jarg2) {
   d_CI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -2404,7 +2454,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiFla_set(void * jarg1, char *
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiFla_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_EmiFla_get(void * jarg1) {
   char * jresult ;
   d_CI *arg1 = 0 ;
   char *result = 0 ;
@@ -2416,7 +2466,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiFla_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiSmo_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_EmiSmo_set(void * jarg1, char * jarg2) {
   d_CI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -2433,7 +2483,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiSmo_set(void * jarg1, char *
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiSmo_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_EmiSmo_get(void * jarg1) {
   char * jresult ;
   d_CI *arg1 = 0 ;
   char *result = 0 ;
@@ -2445,7 +2495,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiSmo_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiDuf_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_EmiDuf_set(void * jarg1, char * jarg2) {
   d_CI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -2462,7 +2512,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiDuf_set(void * jarg1, char *
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiDuf_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_EmiDuf_get(void * jarg1) {
   char * jresult ;
   d_CI *arg1 = 0 ;
   char *result = 0 ;
@@ -2474,7 +2524,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiDuf_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiFull_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_EmiFull_set(void * jarg1, char * jarg2) {
   d_CI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -2491,7 +2541,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiFull_set(void * jarg1, char 
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiFull_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_EmiFull_get(void * jarg1) {
   char * jresult ;
   d_CI *arg1 = 0 ;
   char *result = 0 ;
@@ -2503,7 +2553,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_EmiFull_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_CriInt_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_CriInt_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2513,7 +2563,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_CriInt_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_CriInt_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_CriInt_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2525,7 +2575,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_CriInt_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_fCO_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_fCO_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2535,7 +2585,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_fCO_set(void * jarg1, float jarg
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_fCO_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_fCO_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2547,7 +2597,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_fCO_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_fCO2_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_fCO2_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2557,7 +2607,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_fCO2_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_fCO2_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_fCO2_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2569,7 +2619,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_fCO2_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_fCH4_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_fCH4_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2579,7 +2629,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_fCH4_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_fCH4_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_fCH4_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2591,7 +2641,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_fCH4_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_fPM25_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_fPM25_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2601,7 +2651,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_fPM25_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_fPM25_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_fPM25_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2613,7 +2663,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_fPM25_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_fPM10_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_fPM10_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2623,7 +2673,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_fPM10_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_fPM10_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_fPM10_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2635,7 +2685,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_fPM10_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_fNOX_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_fNOX_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2645,7 +2695,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_fNOX_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_fNOX_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_fNOX_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2657,7 +2707,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_fNOX_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_fSO2_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_fSO2_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2667,7 +2717,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_fSO2_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_fSO2_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_fSO2_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2679,7 +2729,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_fSO2_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_sCO_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_sCO_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2689,7 +2739,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_sCO_set(void * jarg1, float jarg
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_sCO_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_sCO_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2701,7 +2751,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_sCO_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_sCO2_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_sCO2_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2711,7 +2761,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_sCO2_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_sCO2_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_sCO2_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2723,7 +2773,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_sCO2_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_sCH4_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_sCH4_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2733,7 +2783,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_sCH4_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_sCH4_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_sCH4_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2745,7 +2795,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_sCH4_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_sPM25_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_sPM25_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2755,7 +2805,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_sPM25_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_sPM25_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_sPM25_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2767,7 +2817,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_sPM25_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_sPM10_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_sPM10_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2777,7 +2827,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_sPM10_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_sPM10_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_sPM10_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2789,7 +2839,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_sPM10_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_sNOX_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_sNOX_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2799,7 +2849,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_sNOX_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_sNOX_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_sNOX_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2811,7 +2861,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_sNOX_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_sSO2_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_sSO2_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2821,7 +2871,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_sSO2_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_sSO2_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_sSO2_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2833,7 +2883,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_sSO2_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_dCO_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_dCO_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2843,7 +2893,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_dCO_set(void * jarg1, float jarg
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_dCO_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_dCO_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2855,7 +2905,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_dCO_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_dCO2_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_dCO2_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2865,7 +2915,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_dCO2_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_dCO2_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_dCO2_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2877,7 +2927,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_dCO2_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_dCH4_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_dCH4_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2887,7 +2937,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_dCH4_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_dCH4_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_dCH4_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2899,7 +2949,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_dCH4_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_dPM25_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_dPM25_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2909,7 +2959,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_dPM25_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_dPM25_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_dPM25_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2921,7 +2971,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_dPM25_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_dPM10_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_dPM10_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2931,7 +2981,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_dPM10_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_dPM10_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_dPM10_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2943,7 +2993,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_dPM10_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_dNOX_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_dNOX_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2953,7 +3003,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_dNOX_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_dNOX_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_dNOX_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2965,7 +3015,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_dNOX_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_dSO2_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_dSO2_set(void * jarg1, float jarg2) {
   d_CI *arg1 = 0 ;
   float arg2 ;
   
@@ -2975,7 +3025,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_f_dSO2_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_dSO2_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_f_dSO2_get(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -2987,7 +3037,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CI_f_dSO2_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_BatchEqu_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_BatchEqu_set(void * jarg1, char * jarg2) {
   d_CI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -3004,7 +3054,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_cr_BatchEqu_set(void * jarg1, char
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_BatchEqu_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_cr_BatchEqu_get(void * jarg1) {
   char * jresult ;
   d_CI *arg1 = 0 ;
   char *result = 0 ;
@@ -3016,7 +3066,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CI_cr_BatchEqu_get(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_e_EqMissing_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_e_EqMissing_get() {
   int jresult ;
   int result;
   
@@ -3026,7 +3076,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_e_EqMissing_get() {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_e_EqDefault_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_e_EqDefault_get() {
   int jresult ;
   int result;
   
@@ -3036,7 +3086,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_e_EqDefault_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqLit_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_i_EqLit_set(void * jarg1, int jarg2) {
   d_CI *arg1 = 0 ;
   int arg2 ;
   
@@ -3046,7 +3096,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqLit_set(void * jarg1, int jarg
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqLit_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_i_EqLit_get(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3058,7 +3108,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqLit_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_i_EgDufLoa_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_i_EgDufLoa_set(void * jarg1, int jarg2) {
   d_CI *arg1 = 0 ;
   int arg2 ;
   
@@ -3068,7 +3118,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_i_EgDufLoa_set(void * jarg1, int j
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CI_i_EgDufLoa_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_i_EgDufLoa_get(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3080,7 +3130,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CI_i_EgDufLoa_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqDufDep_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_i_EqDufDep_set(void * jarg1, int jarg2) {
   d_CI *arg1 = 0 ;
   int arg2 ;
   
@@ -3090,7 +3140,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqDufDep_set(void * jarg1, int j
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqDufDep_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_i_EqDufDep_get(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3102,7 +3152,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqDufDep_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqMSE_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_i_EqMSE_set(void * jarg1, int jarg2) {
   d_CI *arg1 = 0 ;
   int arg2 ;
   
@@ -3112,7 +3162,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqMSE_set(void * jarg1, int jarg
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqMSE_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_i_EqMSE_get(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3124,7 +3174,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqMSE_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqHerb_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_i_EqHerb_set(void * jarg1, int jarg2) {
   d_CI *arg1 = 0 ;
   int arg2 ;
   
@@ -3134,7 +3184,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqHerb_set(void * jarg1, int jar
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqHerb_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_i_EqHerb_get(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3146,7 +3196,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqHerb_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqShrub_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_i_EqShrub_set(void * jarg1, int jarg2) {
   d_CI *arg1 = 0 ;
   int arg2 ;
   
@@ -3156,7 +3206,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqShrub_set(void * jarg1, int ja
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqShrub_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataInput_i_EqShrub_get(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3168,25 +3218,25 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CI_i_EqShrub_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_new_d_CI() {
+SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEMcore_new_ConsumeDataInput() {
   void * jresult ;
   d_CI *result = 0 ;
   
-  result = (d_CI *)calloc(1, sizeof(d_CI));
+  result = (d_CI *)new d_CI();
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_delete_d_CI(void * jarg1) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_delete_ConsumeDataInput(void * jarg1) {
   d_CI *arg1 = 0 ;
   
   arg1 = (d_CI *)jarg1; 
-  free((char *) arg1);
+  delete arg1;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_CI_Init(void * jarg1) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_CI_Init(void * jarg1) {
   d_CI *arg1 = 0 ;
   
   arg1 = (d_CI *)jarg1; 
@@ -3194,7 +3244,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_CI_Init(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isSpring(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isSpring(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3206,7 +3256,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isSpring(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isFall(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isFall(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3218,7 +3268,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isFall(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isWinter(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isWinter(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3230,7 +3280,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isWinter(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isSummer(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isSummer(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3242,7 +3292,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isSummer(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isSeason(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isSeason(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3254,7 +3304,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isSeason(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isShrubGroup(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isShrubGroup(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3266,7 +3316,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isShrubGroup(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isShrubGroupChaparral(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isShrubGroupChaparral(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3278,7 +3328,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isShrubGroupChaparral(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isGrassGroup(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isGrassGroup(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3290,7 +3340,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isGrassGroup(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isSageBrush(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isSageBrush(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3302,7 +3352,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isSageBrush(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isPocosin(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isPocosin(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3314,7 +3364,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isPocosin(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isPonderosa(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isPonderosa(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3326,7 +3376,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isPonderosa(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isWhiPinHem(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isWhiPinHem(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3338,7 +3388,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isWhiPinHem(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isRedJacPin(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isRedJacPin(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3350,7 +3400,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isRedJacPin(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isBalBRWSpr(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isBalBRWSpr(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3362,7 +3412,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isBalBRWSpr(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isCoastPlain(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isCoastPlain(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3374,7 +3424,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isCoastPlain(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isPinFlaWoo(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isPinFlaWoo(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3386,7 +3436,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isPinFlaWoo(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isCoverGroup(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isCoverGroup(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3398,7 +3448,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isCoverGroup(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isSouthEast(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isSouthEast(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3410,7 +3460,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isSouthEast(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isInteriorWest(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isInteriorWest(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3422,7 +3472,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isInteriorWest(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isPacificWest(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isPacificWest(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3434,7 +3484,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isPacificWest(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isNorthEast(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isNorthEast(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3446,7 +3496,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isNorthEast(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isNatural(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isNatural(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3458,7 +3508,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isNatural(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isPiles(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isPiles(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3470,7 +3520,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isPiles(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isSlash(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isSlash(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3482,7 +3532,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isSlash(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isDufEntire(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isDufEntire(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3494,7 +3544,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isDufEntire(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isDufLower(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isDufLower(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3506,7 +3556,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isDufLower(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isDufNFDR(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isDufNFDR(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3518,7 +3568,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isDufNFDR(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isDufAdjNFDR(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isDufAdjNFDR(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3530,7 +3580,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isDufAdjNFDR(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isDufMethod(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isDufMethod(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3542,7 +3592,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isDufMethod(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isDuffWet(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_isDuffWet(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3554,7 +3604,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_isDuffWet(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_CI_Display(void * jarg1) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_CI_Display(void * jarg1) {
   d_CI *arg1 = 0 ;
   
   arg1 = (d_CI *)jarg1; 
@@ -3562,7 +3612,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_CI_Display(void * jarg1) {
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_CI_MaxLoad(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_CI_MaxLoad(void * jarg1) {
   float jresult ;
   d_CI *arg1 = 0 ;
   float result;
@@ -3574,7 +3624,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_CI_MaxLoad(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_OnlyDuff(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_CI_OnlyDuff(void * jarg1) {
   int jresult ;
   d_CI *arg1 = 0 ;
   int result;
@@ -3586,7 +3636,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_CI_OnlyDuff(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_cr_BrnIg_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_cr_BrnIg_set(void * jarg1, char * jarg2) {
   d_CO *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -3603,7 +3653,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_cr_BrnIg_set(void * jarg1, char * 
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CO_cr_BrnIg_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_cr_BrnIg_get(void * jarg1) {
   char * jresult ;
   d_CO *arg1 = 0 ;
   char *result = 0 ;
@@ -3615,7 +3665,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_CO_cr_BrnIg_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_LitEqu_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_LitEqu_set(void * jarg1, int jarg2) {
   d_CO *arg1 = 0 ;
   int arg2 ;
   
@@ -3625,7 +3675,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_LitEqu_set(void * jarg1, int jar
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_LitEqu_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_LitEqu_get(void * jarg1) {
   int jresult ;
   d_CO *arg1 = 0 ;
   int result;
@@ -3637,7 +3687,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_LitEqu_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_LitPre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_LitPre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -3647,7 +3697,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_LitPre_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_LitPre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_LitPre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -3659,7 +3709,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_LitPre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_LitCon_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_LitCon_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -3669,7 +3719,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_LitCon_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_LitCon_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_LitCon_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -3681,7 +3731,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_LitCon_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_LitPos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_LitPos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -3691,7 +3741,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_LitPos_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_LitPos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_LitPos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -3703,7 +3753,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_LitPos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_LitPer_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_LitPer_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -3713,7 +3763,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_LitPer_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_LitPer_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_LitPer_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -3725,7 +3775,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_LitPer_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_DW1Equ_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_DW1Equ_set(void * jarg1, int jarg2) {
   d_CO *arg1 = 0 ;
   int arg2 ;
   
@@ -3735,7 +3785,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_DW1Equ_set(void * jarg1, int jar
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_DW1Equ_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_DW1Equ_get(void * jarg1) {
   int jresult ;
   d_CO *arg1 = 0 ;
   int result;
@@ -3747,7 +3797,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_DW1Equ_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW1Pre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW1Pre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -3757,7 +3807,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW1Pre_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW1Pre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW1Pre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -3769,7 +3819,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW1Pre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW1Con_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW1Con_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -3779,7 +3829,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW1Con_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW1Con_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW1Con_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -3791,7 +3841,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW1Con_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW1Pos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW1Pos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -3801,7 +3851,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW1Pos_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW1Pos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW1Pos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -3813,7 +3863,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW1Pos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW1Per_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW1Per_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -3823,7 +3873,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW1Per_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW1Per_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW1Per_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -3835,7 +3885,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW1Per_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_DW10Equ_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_DW10Equ_set(void * jarg1, int jarg2) {
   d_CO *arg1 = 0 ;
   int arg2 ;
   
@@ -3845,7 +3895,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_DW10Equ_set(void * jarg1, int ja
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_DW10Equ_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_DW10Equ_get(void * jarg1) {
   int jresult ;
   d_CO *arg1 = 0 ;
   int result;
@@ -3857,7 +3907,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_DW10Equ_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW10Pre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW10Pre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -3867,7 +3917,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW10Pre_set(void * jarg1, float 
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW10Pre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW10Pre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -3879,7 +3929,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW10Pre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW10Con_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW10Con_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -3889,7 +3939,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW10Con_set(void * jarg1, float 
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW10Con_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW10Con_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -3901,7 +3951,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW10Con_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW10Pos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW10Pos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -3911,7 +3961,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW10Pos_set(void * jarg1, float 
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW10Pos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW10Pos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -3923,7 +3973,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW10Pos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW10Per_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW10Per_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -3933,7 +3983,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW10Per_set(void * jarg1, float 
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW10Per_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW10Per_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -3945,7 +3995,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW10Per_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_DW100Equ_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_DW100Equ_set(void * jarg1, int jarg2) {
   d_CO *arg1 = 0 ;
   int arg2 ;
   
@@ -3955,7 +4005,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_DW100Equ_set(void * jarg1, int j
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_DW100Equ_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_DW100Equ_get(void * jarg1) {
   int jresult ;
   d_CO *arg1 = 0 ;
   int result;
@@ -3967,7 +4017,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_DW100Equ_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW100Pre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW100Pre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -3977,7 +4027,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW100Pre_set(void * jarg1, float
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW100Pre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW100Pre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -3989,7 +4039,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW100Pre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW100Con_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW100Con_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -3999,7 +4049,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW100Con_set(void * jarg1, float
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW100Con_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW100Con_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4011,7 +4061,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW100Con_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW100Pos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW100Pos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4021,7 +4071,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW100Pos_set(void * jarg1, float
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW100Pos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW100Pos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4033,7 +4083,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW100Pos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW100Per_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW100Per_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4043,7 +4093,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW100Per_set(void * jarg1, float
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW100Per_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DW100Per_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4055,7 +4105,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DW100Per_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_Snd_DW1kEqu_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_Snd_DW1kEqu_set(void * jarg1, int jarg2) {
   d_CO *arg1 = 0 ;
   int arg2 ;
   
@@ -4065,7 +4115,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_Snd_DW1kEqu_set(void * jarg1, in
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_Snd_DW1kEqu_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_Snd_DW1kEqu_get(void * jarg1) {
   int jresult ;
   d_CO *arg1 = 0 ;
   int result;
@@ -4077,7 +4127,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_Snd_DW1kEqu_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_Snd_DW1kPre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_Snd_DW1kPre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4087,7 +4137,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_Snd_DW1kPre_set(void * jarg1, fl
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_Snd_DW1kPre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_Snd_DW1kPre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4099,7 +4149,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_Snd_DW1kPre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_Snd_DW1kCon_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_Snd_DW1kCon_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4109,7 +4159,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_Snd_DW1kCon_set(void * jarg1, fl
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_Snd_DW1kCon_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_Snd_DW1kCon_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4121,7 +4171,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_Snd_DW1kCon_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_Snd_DW1kPos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_Snd_DW1kPos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4131,7 +4181,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_Snd_DW1kPos_set(void * jarg1, fl
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_Snd_DW1kPos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_Snd_DW1kPos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4143,7 +4193,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_Snd_DW1kPos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_Snd_DW1kPer_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_Snd_DW1kPer_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4153,7 +4203,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_Snd_DW1kPer_set(void * jarg1, fl
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_Snd_DW1kPer_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_Snd_DW1kPer_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4165,7 +4215,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_Snd_DW1kPer_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_Rot_DW1kEqu_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_Rot_DW1kEqu_set(void * jarg1, int jarg2) {
   d_CO *arg1 = 0 ;
   int arg2 ;
   
@@ -4175,7 +4225,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_Rot_DW1kEqu_set(void * jarg1, in
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_Rot_DW1kEqu_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_Rot_DW1kEqu_get(void * jarg1) {
   int jresult ;
   d_CO *arg1 = 0 ;
   int result;
@@ -4187,7 +4237,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_Rot_DW1kEqu_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_Rot_DW1kPre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_Rot_DW1kPre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4197,7 +4247,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_Rot_DW1kPre_set(void * jarg1, fl
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_Rot_DW1kPre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_Rot_DW1kPre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4209,7 +4259,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_Rot_DW1kPre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_Rot_DW1kCon_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_Rot_DW1kCon_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4219,7 +4269,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_Rot_DW1kCon_set(void * jarg1, fl
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_Rot_DW1kCon_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_Rot_DW1kCon_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4231,7 +4281,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_Rot_DW1kCon_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_Rot_DW1kPos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_Rot_DW1kPos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4241,7 +4291,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_Rot_DW1kPos_set(void * jarg1, fl
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_Rot_DW1kPos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_Rot_DW1kPos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4253,7 +4303,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_Rot_DW1kPos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_Rot_DW1kPer_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_Rot_DW1kPer_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4263,7 +4313,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_Rot_DW1kPer_set(void * jarg1, fl
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_Rot_DW1kPer_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_Rot_DW1kPer_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4275,7 +4325,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_Rot_DW1kPer_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_DufEqu_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_DufEqu_set(void * jarg1, int jarg2) {
   d_CO *arg1 = 0 ;
   int arg2 ;
   
@@ -4285,7 +4335,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_DufEqu_set(void * jarg1, int jar
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_DufEqu_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_DufEqu_get(void * jarg1) {
   int jresult ;
   d_CO *arg1 = 0 ;
   int result;
@@ -4297,7 +4347,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_DufEqu_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufPre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DufPre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4307,7 +4357,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufPre_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufPre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DufPre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4319,7 +4369,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufPre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufCon_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DufCon_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4329,7 +4379,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufCon_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufCon_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DufCon_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4341,7 +4391,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufCon_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufPos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DufPos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4351,7 +4401,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufPos_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufPos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DufPos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4363,7 +4413,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufPos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufPer_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DufPer_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4373,7 +4423,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufPer_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufPer_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DufPer_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4385,7 +4435,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufPer_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_DufDepEqu_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_DufDepEqu_set(void * jarg1, int jarg2) {
   d_CO *arg1 = 0 ;
   int arg2 ;
   
@@ -4395,7 +4445,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_DufDepEqu_set(void * jarg1, int 
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_DufDepEqu_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_DufDepEqu_get(void * jarg1) {
   int jresult ;
   d_CO *arg1 = 0 ;
   int result;
@@ -4407,7 +4457,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_DufDepEqu_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufDepPre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DufDepPre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4417,7 +4467,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufDepPre_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufDepPre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DufDepPre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4429,7 +4479,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufDepPre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufDepCon_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DufDepCon_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4439,7 +4489,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufDepCon_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufDepCon_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DufDepCon_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4451,7 +4501,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufDepCon_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufDepPos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DufDepPos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4461,7 +4511,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufDepPos_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufDepPos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DufDepPos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4473,7 +4523,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufDepPos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufDepPer_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DufDepPer_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4483,7 +4533,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufDepPer_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufDepPer_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_DufDepPer_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4495,7 +4545,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_DufDepPer_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_MSEPer_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_MSEPer_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4505,7 +4555,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_MSEPer_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_MSEPer_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_MSEPer_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4517,7 +4567,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_MSEPer_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_MSEEqu_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_MSEEqu_set(void * jarg1, int jarg2) {
   d_CO *arg1 = 0 ;
   int arg2 ;
   
@@ -4527,7 +4577,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_MSEEqu_set(void * jarg1, int jar
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_MSEEqu_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_MSEEqu_get(void * jarg1) {
   int jresult ;
   d_CO *arg1 = 0 ;
   int result;
@@ -4539,7 +4589,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_MSEEqu_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_HerEqu_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_HerEqu_set(void * jarg1, int jarg2) {
   d_CO *arg1 = 0 ;
   int arg2 ;
   
@@ -4549,7 +4599,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_HerEqu_set(void * jarg1, int jar
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_HerEqu_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_HerEqu_get(void * jarg1) {
   int jresult ;
   d_CO *arg1 = 0 ;
   int result;
@@ -4561,7 +4611,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_HerEqu_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_HerPre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_HerPre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4571,7 +4621,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_HerPre_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_HerPre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_HerPre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4583,7 +4633,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_HerPre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_HerCon_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_HerCon_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4593,7 +4643,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_HerCon_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_HerCon_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_HerCon_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4605,7 +4655,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_HerCon_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_HerPos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_HerPos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4615,7 +4665,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_HerPos_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_HerPos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_HerPos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4627,7 +4677,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_HerPos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_HerPer_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_HerPer_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4637,7 +4687,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_HerPer_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_HerPer_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_HerPer_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4649,7 +4699,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_HerPer_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_ShrEqu_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_ShrEqu_set(void * jarg1, int jarg2) {
   d_CO *arg1 = 0 ;
   int arg2 ;
   
@@ -4659,7 +4709,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_ShrEqu_set(void * jarg1, int jar
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_ShrEqu_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_ShrEqu_get(void * jarg1) {
   int jresult ;
   d_CO *arg1 = 0 ;
   int result;
@@ -4671,7 +4721,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_ShrEqu_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_ShrPre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_ShrPre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4681,7 +4731,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_ShrPre_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_ShrPre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_ShrPre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4693,7 +4743,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_ShrPre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_ShrCon_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_ShrCon_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4703,7 +4753,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_ShrCon_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_ShrCon_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_ShrCon_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4715,7 +4765,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_ShrCon_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_ShrPos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_ShrPos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4725,7 +4775,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_ShrPos_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_ShrPos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_ShrPos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4737,7 +4787,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_ShrPos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_ShrPer_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_ShrPer_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4747,7 +4797,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_ShrPer_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_ShrPer_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_ShrPer_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4759,7 +4809,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_ShrPer_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_FolEqu_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_FolEqu_set(void * jarg1, int jarg2) {
   d_CO *arg1 = 0 ;
   int arg2 ;
   
@@ -4769,7 +4819,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_FolEqu_set(void * jarg1, int jar
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_FolEqu_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_FolEqu_get(void * jarg1) {
   int jresult ;
   d_CO *arg1 = 0 ;
   int result;
@@ -4781,7 +4831,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_FolEqu_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_FolPre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_FolPre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4791,7 +4841,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_FolPre_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_FolPre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_FolPre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4803,7 +4853,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_FolPre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_FolCon_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_FolCon_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4813,7 +4863,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_FolCon_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_FolCon_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_FolCon_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4825,7 +4875,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_FolCon_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_FolPos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_FolPos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4835,7 +4885,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_FolPos_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_FolPos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_FolPos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4847,7 +4897,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_FolPos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_FolPer_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_FolPer_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4857,7 +4907,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_FolPer_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_FolPer_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_FolPer_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4869,7 +4919,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_FolPer_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_BraEqu_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_BraEqu_set(void * jarg1, int jarg2) {
   d_CO *arg1 = 0 ;
   int arg2 ;
   
@@ -4879,7 +4929,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_i_BraEqu_set(void * jarg1, int jar
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_BraEqu_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_i_BraEqu_get(void * jarg1) {
   int jresult ;
   d_CO *arg1 = 0 ;
   int result;
@@ -4891,7 +4941,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_i_BraEqu_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_BraPre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_BraPre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4901,7 +4951,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_BraPre_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_BraPre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_BraPre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4913,7 +4963,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_BraPre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_BraCon_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_BraCon_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4923,7 +4973,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_BraCon_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_BraCon_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_BraCon_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4935,7 +4985,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_BraCon_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_BraPos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_BraPos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4945,7 +4995,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_BraPos_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_BraPos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_BraPos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4957,7 +5007,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_BraPos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_BraPer_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_BraPer_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4967,7 +5017,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_BraPer_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_BraPer_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_BraPer_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -4979,7 +5029,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_BraPer_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_TotPre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_TotPre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -4989,7 +5039,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_TotPre_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_TotPre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_TotPre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5001,7 +5051,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_TotPre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_TotCon_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_TotCon_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5011,7 +5061,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_TotCon_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_TotCon_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_TotCon_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5023,7 +5073,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_TotCon_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_TotPos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_TotPos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5033,7 +5083,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_TotPos_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_TotPos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_TotPos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5045,7 +5095,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_TotPos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_TotPer_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_TotPer_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5055,7 +5105,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_TotPer_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_TotPer_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_TotPer_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5067,7 +5117,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_TotPer_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S3Pos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S3Pos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5077,7 +5127,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S3Pos_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S3Pos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S3Pos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5089,7 +5139,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S3Pos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S3Con_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S3Con_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5099,7 +5149,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S3Con_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S3Con_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S3Con_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5111,7 +5161,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S3Con_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S3Pre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S3Pre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5121,7 +5171,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S3Pre_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S3Pre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S3Pre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5133,7 +5183,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S3Pre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S3Per_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S3Per_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5143,7 +5193,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S3Per_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S3Per_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S3Per_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5155,7 +5205,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S3Per_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S6Pos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S6Pos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5165,7 +5215,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S6Pos_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S6Pos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S6Pos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5177,7 +5227,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S6Pos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S6Con_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S6Con_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5187,7 +5237,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S6Con_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S6Con_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S6Con_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5199,7 +5249,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S6Con_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S6Pre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S6Pre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5209,7 +5259,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S6Pre_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S6Pre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S6Pre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5221,7 +5271,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S6Pre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S6Per_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S6Per_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5231,7 +5281,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S6Per_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S6Per_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S6Per_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5243,7 +5293,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S6Per_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S9Pos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S9Pos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5253,7 +5303,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S9Pos_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S9Pos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S9Pos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5265,7 +5315,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S9Pos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S9Con_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S9Con_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5275,7 +5325,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S9Con_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S9Con_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S9Con_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5287,7 +5337,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S9Con_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S9Pre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S9Pre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5297,7 +5347,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S9Pre_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S9Pre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S9Pre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5309,7 +5359,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S9Pre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S9Per_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S9Per_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5319,7 +5369,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S9Per_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S9Per_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S9Per_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5331,7 +5381,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S9Per_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S20Pos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S20Pos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5341,7 +5391,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S20Pos_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S20Pos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S20Pos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5353,7 +5403,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S20Pos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S20Con_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S20Con_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5363,7 +5413,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S20Con_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S20Con_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S20Con_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5375,7 +5425,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S20Con_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S20Pre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S20Pre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5385,7 +5435,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S20Pre_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S20Pre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S20Pre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5397,7 +5447,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S20Pre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S20Per_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S20Per_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5407,7 +5457,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_S20Per_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S20Per_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_S20Per_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5419,7 +5469,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_S20Per_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R3Pos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R3Pos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5429,7 +5479,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R3Pos_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R3Pos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R3Pos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5441,7 +5491,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R3Pos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R3Con_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R3Con_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5451,7 +5501,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R3Con_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R3Con_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R3Con_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5463,7 +5513,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R3Con_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R3Pre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R3Pre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5473,7 +5523,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R3Pre_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R3Pre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R3Pre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5485,7 +5535,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R3Pre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R3Per_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R3Per_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5495,7 +5545,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R3Per_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R3Per_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R3Per_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5507,7 +5557,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R3Per_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R6Pos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R6Pos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5517,7 +5567,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R6Pos_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R6Pos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R6Pos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5529,7 +5579,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R6Pos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R6Con_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R6Con_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5539,7 +5589,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R6Con_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R6Con_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R6Con_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5551,7 +5601,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R6Con_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R6Pre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R6Pre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5561,7 +5611,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R6Pre_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R6Pre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R6Pre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5573,7 +5623,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R6Pre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R6Per_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R6Per_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5583,7 +5633,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R6Per_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R6Per_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R6Per_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5595,7 +5645,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R6Per_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R9Pos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R9Pos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5605,7 +5655,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R9Pos_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R9Pos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R9Pos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5617,7 +5667,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R9Pos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R9Con_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R9Con_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5627,7 +5677,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R9Con_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R9Con_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R9Con_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5639,7 +5689,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R9Con_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R9Pre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R9Pre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5649,7 +5699,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R9Pre_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R9Pre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R9Pre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5661,7 +5711,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R9Pre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R9Per_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R9Per_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5671,7 +5721,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R9Per_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R9Per_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R9Per_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5683,7 +5733,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R9Per_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R20Pos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R20Pos_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5693,7 +5743,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R20Pos_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R20Pos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R20Pos_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5705,7 +5755,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R20Pos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R20Con_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R20Con_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5715,7 +5765,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R20Con_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R20Con_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R20Con_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5727,7 +5777,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R20Con_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R20Pre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R20Pre_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5737,7 +5787,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R20Pre_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R20Pre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R20Pre_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5749,7 +5799,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R20Pre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R20Per_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R20Per_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5759,7 +5809,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_R20Per_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R20Per_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_R20Per_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5771,7 +5821,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_R20Per_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM10F_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_PM10F_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5781,7 +5831,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM10F_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM10F_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_PM10F_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5793,7 +5843,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM10F_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM25F_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_PM25F_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5803,7 +5853,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM25F_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM25F_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_PM25F_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5815,7 +5865,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM25F_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_CH4F_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_CH4F_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5825,7 +5875,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_CH4F_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_CH4F_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_CH4F_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5837,7 +5887,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_CH4F_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_COF_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_COF_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5847,7 +5897,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_COF_set(void * jarg1, float jarg
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_COF_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_COF_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5859,7 +5909,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_COF_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_CO2F_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_CO2F_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5869,7 +5919,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_CO2F_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_CO2F_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_CO2F_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5881,7 +5931,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_CO2F_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_NOXF_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_NOXF_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5891,7 +5941,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_NOXF_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_NOXF_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_NOXF_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5903,7 +5953,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_NOXF_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_SO2F_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_SO2F_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5913,7 +5963,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_SO2F_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_SO2F_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_SO2F_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5925,7 +5975,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_SO2F_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM10S_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_PM10S_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5935,7 +5985,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM10S_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM10S_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_PM10S_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5947,7 +5997,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM10S_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM25S_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_PM25S_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5957,7 +6007,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM25S_set(void * jarg1, float ja
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM25S_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_PM25S_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5969,7 +6019,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM25S_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_CH4S_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_CH4S_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -5979,7 +6029,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_CH4S_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_CH4S_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_CH4S_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -5991,7 +6041,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_CH4S_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_COS_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_COS_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -6001,7 +6051,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_COS_set(void * jarg1, float jarg
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_COS_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_COS_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -6013,7 +6063,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_COS_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_CO2S_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_CO2S_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -6023,7 +6073,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_CO2S_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_CO2S_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_CO2S_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -6035,7 +6085,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_CO2S_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_NOXS_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_NOXS_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -6045,7 +6095,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_NOXS_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_NOXS_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_NOXS_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -6057,7 +6107,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_NOXS_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_SO2S_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_SO2S_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -6067,7 +6117,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_SO2S_set(void * jarg1, float jar
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_SO2S_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_SO2S_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -6079,7 +6129,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_SO2S_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM10S_Duff_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_PM10S_Duff_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -6089,7 +6139,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM10S_Duff_set(void * jarg1, flo
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM10S_Duff_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_PM10S_Duff_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -6101,7 +6151,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM10S_Duff_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM25S_Duff_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_PM25S_Duff_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -6111,7 +6161,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM25S_Duff_set(void * jarg1, flo
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM25S_Duff_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_PM25S_Duff_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -6123,7 +6173,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_PM25S_Duff_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_CH4S_Duff_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_CH4S_Duff_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -6133,7 +6183,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_CH4S_Duff_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_CH4S_Duff_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_CH4S_Duff_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -6145,7 +6195,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_CH4S_Duff_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_COS_Duff_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_COS_Duff_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -6155,7 +6205,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_COS_Duff_set(void * jarg1, float
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_COS_Duff_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_COS_Duff_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -6167,7 +6217,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_COS_Duff_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_CO2S_Duff_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_CO2S_Duff_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -6177,7 +6227,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_CO2S_Duff_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_CO2S_Duff_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_CO2S_Duff_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -6189,7 +6239,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_CO2S_Duff_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_NOXS_Duff_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_NOXS_Duff_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -6199,7 +6249,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_NOXS_Duff_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_NOXS_Duff_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_NOXS_Duff_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -6211,7 +6261,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_NOXS_Duff_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_SO2S_Duff_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_SO2S_Duff_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -6221,7 +6271,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_SO2S_Duff_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_SO2S_Duff_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_SO2S_Duff_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -6233,7 +6283,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_SO2S_Duff_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_FlaDur_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_FlaDur_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -6243,7 +6293,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_FlaDur_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_FlaDur_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_FlaDur_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -6255,7 +6305,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_FlaDur_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_SmoDur_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_SmoDur_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -6265,7 +6315,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_SmoDur_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_SmoDur_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_SmoDur_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -6277,7 +6327,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_SmoDur_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_FlaCon_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_FlaCon_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -6287,7 +6337,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_FlaCon_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_FlaCon_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_FlaCon_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -6299,7 +6349,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_FlaCon_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_SmoCon_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_SmoCon_set(void * jarg1, float jarg2) {
   d_CO *arg1 = 0 ;
   float arg2 ;
   
@@ -6309,7 +6359,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_f_SmoCon_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_SmoCon_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_f_SmoCon_get(void * jarg1) {
   float jresult ;
   d_CO *arg1 = 0 ;
   float result;
@@ -6321,7 +6371,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_CO_f_SmoCon_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_pm10f_set(void * jarg1, double jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_pm10f_set(void * jarg1, double jarg2) {
   d_CO *arg1 = 0 ;
   double arg2 ;
   
@@ -6331,7 +6381,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_pm10f_set(void * jarg1, double j
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_pm10f_get(void * jarg1) {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_pm10f_get(void * jarg1) {
   double jresult ;
   d_CO *arg1 = 0 ;
   double result;
@@ -6343,7 +6393,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_pm10f_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_pm10s_set(void * jarg1, double jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_pm10s_set(void * jarg1, double jarg2) {
   d_CO *arg1 = 0 ;
   double arg2 ;
   
@@ -6353,7 +6403,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_pm10s_set(void * jarg1, double j
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_pm10s_get(void * jarg1) {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_pm10s_get(void * jarg1) {
   double jresult ;
   d_CO *arg1 = 0 ;
   double result;
@@ -6365,7 +6415,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_pm10s_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_pm25f_set(void * jarg1, double jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_pm25f_set(void * jarg1, double jarg2) {
   d_CO *arg1 = 0 ;
   double arg2 ;
   
@@ -6375,7 +6425,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_pm25f_set(void * jarg1, double j
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_pm25f_get(void * jarg1) {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_pm25f_get(void * jarg1) {
   double jresult ;
   d_CO *arg1 = 0 ;
   double result;
@@ -6387,7 +6437,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_pm25f_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_pm25s_set(void * jarg1, double jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_pm25s_set(void * jarg1, double jarg2) {
   d_CO *arg1 = 0 ;
   double arg2 ;
   
@@ -6397,7 +6447,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_pm25s_set(void * jarg1, double j
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_pm25s_get(void * jarg1) {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_pm25s_get(void * jarg1) {
   double jresult ;
   d_CO *arg1 = 0 ;
   double result;
@@ -6409,7 +6459,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_pm25s_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_ch4f_set(void * jarg1, double jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_ch4f_set(void * jarg1, double jarg2) {
   d_CO *arg1 = 0 ;
   double arg2 ;
   
@@ -6419,7 +6469,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_ch4f_set(void * jarg1, double ja
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_ch4f_get(void * jarg1) {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_ch4f_get(void * jarg1) {
   double jresult ;
   d_CO *arg1 = 0 ;
   double result;
@@ -6431,7 +6481,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_ch4f_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_ch4s_set(void * jarg1, double jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_ch4s_set(void * jarg1, double jarg2) {
   d_CO *arg1 = 0 ;
   double arg2 ;
   
@@ -6441,7 +6491,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_ch4s_set(void * jarg1, double ja
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_ch4s_get(void * jarg1) {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_ch4s_get(void * jarg1) {
   double jresult ;
   d_CO *arg1 = 0 ;
   double result;
@@ -6453,7 +6503,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_ch4s_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_cof_set(void * jarg1, double jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_cof_set(void * jarg1, double jarg2) {
   d_CO *arg1 = 0 ;
   double arg2 ;
   
@@ -6463,7 +6513,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_cof_set(void * jarg1, double jar
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_cof_get(void * jarg1) {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_cof_get(void * jarg1) {
   double jresult ;
   d_CO *arg1 = 0 ;
   double result;
@@ -6475,7 +6525,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_cof_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_cos_set(void * jarg1, double jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_cos_set(void * jarg1, double jarg2) {
   d_CO *arg1 = 0 ;
   double arg2 ;
   
@@ -6485,7 +6535,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_cos_set(void * jarg1, double jar
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_cos_get(void * jarg1) {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_cos_get(void * jarg1) {
   double jresult ;
   d_CO *arg1 = 0 ;
   double result;
@@ -6497,7 +6547,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_cos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_co2f_set(void * jarg1, double jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_co2f_set(void * jarg1, double jarg2) {
   d_CO *arg1 = 0 ;
   double arg2 ;
   
@@ -6507,7 +6557,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_co2f_set(void * jarg1, double ja
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_co2f_get(void * jarg1) {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_co2f_get(void * jarg1) {
   double jresult ;
   d_CO *arg1 = 0 ;
   double result;
@@ -6519,7 +6569,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_co2f_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_co2s_set(void * jarg1, double jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_co2s_set(void * jarg1, double jarg2) {
   d_CO *arg1 = 0 ;
   double arg2 ;
   
@@ -6529,7 +6579,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_co2s_set(void * jarg1, double ja
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_co2s_get(void * jarg1) {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_co2s_get(void * jarg1) {
   double jresult ;
   d_CO *arg1 = 0 ;
   double result;
@@ -6541,7 +6591,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_co2s_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_noxf_set(void * jarg1, double jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_noxf_set(void * jarg1, double jarg2) {
   d_CO *arg1 = 0 ;
   double arg2 ;
   
@@ -6551,7 +6601,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_noxf_set(void * jarg1, double ja
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_noxf_get(void * jarg1) {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_noxf_get(void * jarg1) {
   double jresult ;
   d_CO *arg1 = 0 ;
   double result;
@@ -6563,7 +6613,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_noxf_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_noxs_set(void * jarg1, double jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_noxs_set(void * jarg1, double jarg2) {
   d_CO *arg1 = 0 ;
   double arg2 ;
   
@@ -6573,7 +6623,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_noxs_set(void * jarg1, double ja
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_noxs_get(void * jarg1) {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_noxs_get(void * jarg1) {
   double jresult ;
   d_CO *arg1 = 0 ;
   double result;
@@ -6585,7 +6635,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_noxs_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_so2f_set(void * jarg1, double jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_so2f_set(void * jarg1, double jarg2) {
   d_CO *arg1 = 0 ;
   double arg2 ;
   
@@ -6595,7 +6645,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_so2f_set(void * jarg1, double ja
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_so2f_get(void * jarg1) {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_so2f_get(void * jarg1) {
   double jresult ;
   d_CO *arg1 = 0 ;
   double result;
@@ -6607,7 +6657,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_so2f_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_so2s_set(void * jarg1, double jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_so2s_set(void * jarg1, double jarg2) {
   d_CO *arg1 = 0 ;
   double arg2 ;
   
@@ -6617,7 +6667,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_d_so2s_set(void * jarg1, double ja
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_so2s_get(void * jarg1) {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_d_so2s_get(void * jarg1) {
   double jresult ;
   d_CO *arg1 = 0 ;
   double result;
@@ -6629,7 +6679,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_d_CO_d_so2s_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_sr_SGV_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_sr_SGV_set(void * jarg1, void * jarg2) {
   d_CO *arg1 = 0 ;
   d_SGV *arg2 = (d_SGV *)0 ;
   
@@ -6643,7 +6693,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_sr_SGV_set(void * jarg1, void * ja
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_d_CO_sr_SGV_get(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_sr_SGV_get(void * jarg1) {
   void * jresult ;
   d_CO *arg1 = 0 ;
   d_SGV *result = 0 ;
@@ -6655,7 +6705,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_d_CO_sr_SGV_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_iC_SGV_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_iC_SGV_set(void * jarg1, int jarg2) {
   d_CO *arg1 = 0 ;
   int arg2 ;
   
@@ -6665,7 +6715,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_iC_SGV_set(void * jarg1, int jarg2
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_iC_SGV_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_iC_SGV_get(void * jarg1) {
   int jresult ;
   d_CO *arg1 = 0 ;
   int result;
@@ -6677,7 +6727,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_CO_iC_SGV_get(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_sfi_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_eC_sfi_get() {
   int jresult ;
   int result;
   
@@ -6687,7 +6737,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_sfi_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_fr_SFI_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_fr_SFI_set(void * jarg1, void * jarg2) {
   d_CO *arg1 = 0 ;
   float *arg2 = (float *)0 ;
   
@@ -6701,7 +6751,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_fr_SFI_set(void * jarg1, void * ja
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_d_CO_fr_SFI_get(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_fr_SFI_get(void * jarg1) {
   void * jresult ;
   d_CO *arg1 = 0 ;
   float *result = 0 ;
@@ -6713,7 +6763,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_d_CO_fr_SFI_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_fr_SFIhs_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_fr_SFIhs_set(void * jarg1, void * jarg2) {
   d_CO *arg1 = 0 ;
   float *arg2 = (float *)0 ;
   
@@ -6727,7 +6777,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_CO_fr_SFIhs_set(void * jarg1, void * 
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_d_CO_fr_SFIhs_get(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEMcore_ConsumeDataOutput_fr_SFIhs_get(void * jarg1) {
   void * jresult ;
   d_CO *arg1 = 0 ;
   float *result = 0 ;
@@ -6739,25 +6789,33 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_d_CO_fr_SFIhs_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_new_d_CO() {
+SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEMcore_new_ConsumeDataOutput() {
   void * jresult ;
   d_CO *result = 0 ;
   
-  result = (d_CO *)calloc(1, sizeof(d_CO));
+  result = (d_CO *)new d_CO();
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_delete_d_CO(void * jarg1) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_delete_ConsumeDataOutput(void * jarg1) {
   d_CO *arg1 = 0 ;
   
   arg1 = (d_CO *)jarg1; 
-  free((char *) arg1);
+  delete arg1;
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_SoiSimFail_get() {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_CO_Init(void * jarg1) {
+  d_CO *arg1 = 0 ;
+  
+  arg1 = (d_CO *)jarg1; 
+  CO_Init(arg1);
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_SoiSimFail_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -6767,7 +6825,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_SoiSimFail_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_SoilErr_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_SoilErr_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -6777,7 +6835,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_SoilErr_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_FrameSFN_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_FrameSFN_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -6787,7 +6845,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_FrameSFN_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_FrameSstart_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_FrameSstart_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -6797,7 +6855,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_FrameSstart_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_FrameSend_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_FrameSend_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -6807,7 +6865,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_FrameSend_get() {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_SI_fopen(char * jarg1, char * jarg2) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEMcore_SI_fopen(char * jarg1, char * jarg2) {
   void * jresult ;
   char *arg1 = (char *)0 ;
   char *arg2 = (char *)0 ;
@@ -6821,7 +6879,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_SI_fopen(char * jarg1, char * jarg2) 
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_SI_fprintfVal(void * jarg1, char * jarg2, float jarg3) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SI_fprintfVal(void * jarg1, char * jarg2, float jarg3) {
   FILE *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   float arg3 ;
@@ -6833,7 +6891,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_SI_fprintfVal(void * jarg1, char * jarg
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_SI_fprintfRet(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SI_fprintfRet(void * jarg1, char * jarg2) {
   FILE *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -6843,7 +6901,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_SI_fprintfRet(void * jarg1, char * jarg
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_SI_fclose(void * jarg1) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SI_fclose(void * jarg1) {
   FILE *arg1 = 0 ;
   
   arg1 = (FILE *)jarg1; 
@@ -6851,7 +6909,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_SI_fclose(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_e_Max1_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_e_Max1_get() {
   int jresult ;
   int result;
   
@@ -6861,7 +6919,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_e_Max1_get() {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_e_Max2_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_e_Max2_get() {
   int jresult ;
   int result;
   
@@ -6871,7 +6929,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_e_Max2_get() {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_e_mplus1_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_e_mplus1_get() {
   int jresult ;
   int result;
   
@@ -6881,7 +6939,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_e_mplus1_get() {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_e_Layers_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_e_Layers_get() {
   int jresult ;
   int result;
   
@@ -6891,7 +6949,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_e_Layers_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufLoaPre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_DufLoaPre_set(void * jarg1, float jarg2) {
   d_SI *arg1 = 0 ;
   float arg2 ;
   
@@ -6901,7 +6959,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufLoaPre_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufLoaPre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_DufLoaPre_get(void * jarg1) {
   float jresult ;
   d_SI *arg1 = 0 ;
   float result;
@@ -6913,7 +6971,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufLoaPre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufConPer_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_DufConPer_set(void * jarg1, float jarg2) {
   d_SI *arg1 = 0 ;
   float arg2 ;
   
@@ -6923,7 +6981,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufConPer_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufConPer_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_DufConPer_get(void * jarg1) {
   float jresult ;
   d_SI *arg1 = 0 ;
   float result;
@@ -6935,7 +6993,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufConPer_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufMoi_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_DufMoi_set(void * jarg1, float jarg2) {
   d_SI *arg1 = 0 ;
   float arg2 ;
   
@@ -6945,7 +7003,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufMoi_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufMoi_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_DufMoi_get(void * jarg1) {
   float jresult ;
   d_SI *arg1 = 0 ;
   float result;
@@ -6957,7 +7015,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufMoi_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufDepPre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_DufDepPre_set(void * jarg1, float jarg2) {
   d_SI *arg1 = 0 ;
   float arg2 ;
   
@@ -6967,7 +7025,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufDepPre_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufDepPre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_DufDepPre_get(void * jarg1) {
   float jresult ;
   d_SI *arg1 = 0 ;
   float result;
@@ -6979,7 +7037,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufDepPre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufDepPos_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_DufDepPos_set(void * jarg1, float jarg2) {
   d_SI *arg1 = 0 ;
   float arg2 ;
   
@@ -6989,7 +7047,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufDepPos_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufDepPos_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_DufDepPos_get(void * jarg1) {
   float jresult ;
   d_SI *arg1 = 0 ;
   float result;
@@ -7001,7 +7059,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_DufDepPos_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_SoilMoist_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_SoilMoist_set(void * jarg1, float jarg2) {
   d_SI *arg1 = 0 ;
   float arg2 ;
   
@@ -7011,7 +7069,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_SoilMoist_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_SoilMoist_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_SoilMoist_get(void * jarg1) {
   float jresult ;
   d_SI *arg1 = 0 ;
   float result;
@@ -7023,29 +7081,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_SoilMoist_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_AmbAirTmp_set(void * jarg1, float jarg2) {
-  d_SI *arg1 = 0 ;
-  float arg2 ;
-  
-  arg1 = (d_SI *)jarg1; 
-  arg2 = (float)jarg2; 
-  if (arg1) (arg1)->f_AmbAirTmp = arg2;
-}
-
-
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_AmbAirTmp_get(void * jarg1) {
-  float jresult ;
-  d_SI *arg1 = 0 ;
-  float result;
-  
-  arg1 = (d_SI *)jarg1; 
-  result = (float) ((arg1)->f_AmbAirTmp);
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_cr_BrnIg_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_cr_BrnIg_set(void * jarg1, char * jarg2) {
   d_SI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -7062,7 +7098,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_cr_BrnIg_set(void * jarg1, char * 
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_SI_cr_BrnIg_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_cr_BrnIg_get(void * jarg1) {
   char * jresult ;
   d_SI *arg1 = 0 ;
   char *result = 0 ;
@@ -7074,7 +7110,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_SI_cr_BrnIg_get(void * jarg1) {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_LoaSke_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_LoaSke_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7084,7 +7120,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_LoaSke_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_FinSil_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_FinSil_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7094,7 +7130,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_FinSil_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Fin_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_Fin_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7104,7 +7140,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Fin_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CoaSil_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CoaSil_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7114,7 +7150,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CoaSil_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CoaLoa_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_CoaLoa_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7124,7 +7160,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_CoaLoa_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_LOAMY_SKELETAL_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_LOAMY_SKELETAL_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7134,7 +7170,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_LOAMY_SKELETAL_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_FINE_SILT_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_FINE_SILT_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7144,7 +7180,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_FINE_SILT_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_FINE_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_FINE_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7154,7 +7190,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_FINE_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_COARSE_SILT_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_COARSE_SILT_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7164,7 +7200,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_COARSE_SILT_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_COARSE_LOAMY_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_COARSE_LOAMY_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7174,7 +7210,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_COARSE_LOAMY_get() {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_SoilType_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_eC_SoilType_get() {
   int jresult ;
   int result;
   
@@ -7184,7 +7220,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_SoilType_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_cr_SoilType_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_cr_SoilType_set(void * jarg1, char * jarg2) {
   d_SI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -7201,7 +7237,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_cr_SoilType_set(void * jarg1, char
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_SI_cr_SoilType_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_cr_SoilType_get(void * jarg1) {
   char * jresult ;
   d_SI *arg1 = 0 ;
   char *result = 0 ;
@@ -7213,7 +7249,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_SI_cr_SoilType_get(void * jarg1) {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_VeryDry_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_VeryDry_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7223,7 +7259,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_VeryDry_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Dry_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_Dry_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7233,7 +7269,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Dry_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Moderate_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_Moderate_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7243,7 +7279,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Moderate_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Wet_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_Wet_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7253,7 +7289,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_Wet_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_VERY_DRY_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_VERY_DRY_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7263,7 +7299,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_VERY_DRY_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_DRY_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_DRY_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7273,7 +7309,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_DRY_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_MODERATE_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_MODERATE_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7283,7 +7319,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_MODERATE_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_WET_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_WET_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7293,7 +7329,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_WET_get() {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_MoistCond_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_eC_MoistCond_get() {
   int jresult ;
   int result;
   
@@ -7303,7 +7339,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_eC_MoistCond_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_cr_MoistCond_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_cr_MoistCond_set(void * jarg1, char * jarg2) {
   d_SI *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -7320,7 +7356,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_cr_MoistCond_set(void * jarg1, cha
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_SI_cr_MoistCond_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_cr_MoistCond_get(void * jarg1) {
   char * jresult ;
   d_SI *arg1 = 0 ;
   char *result = 0 ;
@@ -7332,7 +7368,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_SI_cr_MoistCond_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_ar_FI_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_ar_FI_set(void * jarg1, void * jarg2) {
   d_SI *arg1 = 0 ;
   float *arg2 = 0 ;
   
@@ -7342,7 +7378,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_ar_FI_set(void * jarg1, void * jar
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_d_SI_ar_FI_get(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_ar_FI_get(void * jarg1) {
   void * jresult ;
   d_SI *arg1 = 0 ;
   float *result = 0 ;
@@ -7354,7 +7390,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_d_SI_ar_FI_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_SoilWlEff_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_SoilWlEff_set(void * jarg1, float jarg2) {
   d_SI *arg1 = 0 ;
   float arg2 ;
   
@@ -7364,7 +7400,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_SoilWlEff_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_SoilWlEff_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_SoilWlEff_get(void * jarg1) {
   float jresult ;
   d_SI *arg1 = 0 ;
   float result;
@@ -7376,7 +7412,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_SoilWlEff_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_SoilHsEff_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_SoilHsEff_set(void * jarg1, float jarg2) {
   d_SI *arg1 = 0 ;
   float arg2 ;
   
@@ -7386,7 +7422,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_SoilHsEff_set(void * jarg1, floa
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_SoilHsEff_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_SoilHsEff_get(void * jarg1) {
   float jresult ;
   d_SI *arg1 = 0 ;
   float result;
@@ -7398,7 +7434,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_SoilHsEff_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_SoilDuffEff_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_SoilDuffEff_set(void * jarg1, float jarg2) {
   d_SI *arg1 = 0 ;
   float arg2 ;
   
@@ -7408,7 +7444,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SI_f_SoilDuffEff_set(void * jarg1, fl
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_SoilDuffEff_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_SoilDataInput_f_SoilDuffEff_get(void * jarg1) {
   float jresult ;
   d_SI *arg1 = 0 ;
   float result;
@@ -7420,25 +7456,25 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SI_f_SoilDuffEff_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_new_d_SI() {
+SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEMcore_new_SoilDataInput() {
   void * jresult ;
   d_SI *result = 0 ;
   
-  result = (d_SI *)calloc(1, sizeof(d_SI));
+  result = (d_SI *)new d_SI();
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_delete_d_SI(void * jarg1) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_delete_SoilDataInput(void * jarg1) {
   d_SI *arg1 = 0 ;
   
   arg1 = (d_SI *)jarg1; 
-  free((char *) arg1);
+  delete arg1;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SO_ir_Temp_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataOutput_ir_Temp_set(void * jarg1, void * jarg2) {
   d_SO *arg1 = 0 ;
   int *arg2 = (int *)0 ;
   
@@ -7452,7 +7488,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SO_ir_Temp_set(void * jarg1, void * j
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_d_SO_ir_Temp_get(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEMcore_SoilDataOutput_ir_Temp_get(void * jarg1) {
   void * jresult ;
   d_SO *arg1 = 0 ;
   int *result = 0 ;
@@ -7464,7 +7500,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_d_SO_ir_Temp_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SO_ir_TimSec_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataOutput_ir_TimSec_set(void * jarg1, void * jarg2) {
   d_SO *arg1 = 0 ;
   int *arg2 = (int *)0 ;
   
@@ -7478,7 +7514,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SO_ir_TimSec_set(void * jarg1, void *
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_d_SO_ir_TimSec_get(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEMcore_SoilDataOutput_ir_TimSec_get(void * jarg1) {
   void * jresult ;
   d_SO *arg1 = 0 ;
   int *result = 0 ;
@@ -7490,7 +7526,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_d_SO_ir_TimSec_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SO_f_cDufPre_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataOutput_f_cDufPre_set(void * jarg1, float jarg2) {
   d_SO *arg1 = 0 ;
   float arg2 ;
   
@@ -7500,7 +7536,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SO_f_cDufPre_set(void * jarg1, float 
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SO_f_cDufPre_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_SoilDataOutput_f_cDufPre_get(void * jarg1) {
   float jresult ;
   d_SO *arg1 = 0 ;
   float result;
@@ -7512,7 +7548,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SO_f_cDufPre_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SO_f_cDufPost_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataOutput_f_cDufPost_set(void * jarg1, float jarg2) {
   d_SO *arg1 = 0 ;
   float arg2 ;
   
@@ -7522,7 +7558,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SO_f_cDufPost_set(void * jarg1, float
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SO_f_cDufPost_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_SoilDataOutput_f_cDufPost_get(void * jarg1) {
   float jresult ;
   d_SO *arg1 = 0 ;
   float result;
@@ -7534,7 +7570,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SO_f_cDufPost_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SO_f_Heatpc_set(void * jarg1, float jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataOutput_f_Heatpc_set(void * jarg1, float jarg2) {
   d_SO *arg1 = 0 ;
   float arg2 ;
   
@@ -7544,7 +7580,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SO_f_Heatpc_set(void * jarg1, float j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SO_f_Heatpc_get(void * jarg1) {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_SoilDataOutput_f_Heatpc_get(void * jarg1) {
   float jresult ;
   d_SO *arg1 = 0 ;
   float result;
@@ -7556,7 +7592,7 @@ SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_d_SO_f_Heatpc_get(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_e_LayNone_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_e_LayNone_get() {
   int jresult ;
   int result;
   
@@ -7566,7 +7602,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_e_LayNone_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SO_i_LayMaxDeg1_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataOutput_i_LayMaxDeg1_set(void * jarg1, int jarg2) {
   d_SO *arg1 = 0 ;
   int arg2 ;
   
@@ -7576,7 +7612,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SO_i_LayMaxDeg1_set(void * jarg1, int
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_SO_i_LayMaxDeg1_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_SoilDataOutput_i_LayMaxDeg1_get(void * jarg1) {
   int jresult ;
   d_SO *arg1 = 0 ;
   int result;
@@ -7588,7 +7624,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_SO_i_LayMaxDeg1_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SO_i_LayMaxDeg2_set(void * jarg1, int jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataOutput_i_LayMaxDeg2_set(void * jarg1, int jarg2) {
   d_SO *arg1 = 0 ;
   int arg2 ;
   
@@ -7598,7 +7634,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SO_i_LayMaxDeg2_set(void * jarg1, int
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_SO_i_LayMaxDeg2_get(void * jarg1) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_SoilDataOutput_i_LayMaxDeg2_get(void * jarg1) {
   int jresult ;
   d_SO *arg1 = 0 ;
   int result;
@@ -7610,7 +7646,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_d_SO_i_LayMaxDeg2_get(void * jarg1) {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_SM_Duff_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_SM_Duff_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7620,7 +7656,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_SM_Duff_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_SM_ZDuff_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_SM_ZDuff_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7630,7 +7666,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_SM_ZDuff_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SO_cr_Model_set(void * jarg1, char * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SoilDataOutput_cr_Model_set(void * jarg1, char * jarg2) {
   d_SO *arg1 = 0 ;
   char *arg2 = (char *)0 ;
   
@@ -7647,7 +7683,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_d_SO_cr_Model_set(void * jarg1, char * 
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_SO_cr_Model_get(void * jarg1) {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_SoilDataOutput_cr_Model_get(void * jarg1) {
   char * jresult ;
   d_SO *arg1 = 0 ;
   char *result = 0 ;
@@ -7659,25 +7695,25 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_d_SO_cr_Model_get(void * jarg1) {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEM_new_d_SO() {
+SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEMcore_new_SoilDataOutput() {
   void * jresult ;
   d_SO *result = 0 ;
   
-  result = (d_SO *)calloc(1, sizeof(d_SO));
+  result = (d_SO *)new d_SO();
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_delete_d_SO(void * jarg1) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_delete_SoilDataOutput(void * jarg1) {
   d_SO *arg1 = 0 ;
   
   arg1 = (d_SO *)jarg1; 
-  free((char *) arg1);
+  delete arg1;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_SI_Init(void * jarg1) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SI_Init(void * jarg1) {
   d_SI *arg1 = 0 ;
   
   arg1 = (d_SI *)jarg1; 
@@ -7685,7 +7721,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_SI_Init(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_SO_Init(void * jarg1) {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_SO_Init(void * jarg1) {
   d_SO *arg1 = 0 ;
   
   arg1 = (d_SO *)jarg1; 
@@ -7693,7 +7729,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_SO_Init(void * jarg1) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_SH_Mngr(void * jarg1, void * jarg2, void * jarg3, void * jarg4, char * jarg5, char * jarg6) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_SH_Mngr(void * jarg1, void * jarg2, void * jarg3, void * jarg4, char * jarg5, char * jarg6) {
   int jresult ;
   d_SI *arg1 = 0 ;
   d_SO *arg2 = 0 ;
@@ -7715,7 +7751,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_SH_Mngr(void * jarg1, void * jarg2, void
 }
 
 
-SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_CriInt_get() {
+SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_e_CriInt_get() {
   double jresult ;
   double result;
   
@@ -7725,7 +7761,7 @@ SWIGEXPORT double SWIGSTDCALL CSharp_FOFEM_e_CriInt_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_EmiFN_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_EmiFN_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7735,7 +7771,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_EmiFN_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_DefFlaGrp_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_DefFlaGrp_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7745,7 +7781,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_DefFlaGrp_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_DefDufGrp_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_DefDufGrp_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7755,7 +7791,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_DefDufGrp_get() {
 }
 
 
-SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_DefSmoGrp_get() {
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_DefSmoGrp_get() {
   char * jresult ;
   char *result = 0 ;
   
@@ -7765,7 +7801,7 @@ SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEM_e_DefSmoGrp_get() {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_NES_Read(char * jarg1, char * jarg2) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_NES_Read(char * jarg1, char * jarg2) {
   int jresult ;
   char *arg1 = (char *)0 ;
   char *arg2 = (char *)0 ;
@@ -7779,7 +7815,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_NES_Read(char * jarg1, char * jarg2) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_NES_Get_Factor(char * jarg1, int jarg2, char * jarg3, void * jarg4, char * jarg5, char * jarg6) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_NES_Get_Factor(char * jarg1, int jarg2, char * jarg3, void * jarg4, char * jarg5, char * jarg6) {
   int jresult ;
   char *arg1 = (char *)0 ;
   int arg2 ;
@@ -7801,17 +7837,17 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_NES_Get_Factor(char * jarg1, int jarg2, 
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_NCT_Display() {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_NCT_Display() {
   NCT_Display();
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_FOFEM_NES_Display() {
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_NES_Display() {
   NES_Display();
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_NES_GetGrpCov(int jarg1, char * jarg2, char * jarg3, void * jarg4) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_NES_GetGrpCov(int jarg1, char * jarg2, char * jarg3, void * jarg4) {
   int jresult ;
   int arg1 ;
   char *arg2 = (char *)0 ;
@@ -7829,7 +7865,7 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_NES_GetGrpCov(int jarg1, char * jarg2, c
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_NES_Get_MajFactor(char * jarg1, void * jarg2, void * jarg3, void * jarg4, void * jarg5, void * jarg6, void * jarg7, void * jarg8) {
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_NES_Get_MajFactor(char * jarg1, void * jarg2, void * jarg3, void * jarg4, void * jarg5, void * jarg6, void * jarg7, void * jarg8) {
   int jresult ;
   char *arg1 = (char *)0 ;
   float *arg2 = 0 ;
@@ -7855,11 +7891,981 @@ SWIGEXPORT int SWIGSTDCALL CSharp_FOFEM_NES_Get_MajFactor(char * jarg1, void * j
 }
 
 
-SWIGEXPORT float SWIGSTDCALL CSharp_FOFEM_NES_Get_CriFirInt() {
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_NES_Get_CriFirInt() {
   float jresult ;
   float result;
   
   result = (float)NES_Get_CriFirInt();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_eC_SGV_get() {
+  int jresult ;
+  int result;
+  
+  result = (int)(1500);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_GramSqMt_To_Pounds(float jarg1) {
+  float jresult ;
+  float arg1 ;
+  float result;
+  
+  arg1 = (float)jarg1; 
+  result = (float)GramSqMt_To_Pounds(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_Sec_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_Sec = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_Sec_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_Sec);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_Amt_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_Amt = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_Amt_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_Amt);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_PM2_5_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_PM2_5 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_PM2_5_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_PM2_5);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_PM10_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_PM10 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_PM10_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_PM10);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_CH4_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_CH4 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_CH4_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_CH4);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_CO2_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_CO2 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_CO2_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_CO2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_CO_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_CO = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_CO_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_CO);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_NOX_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_NOX = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_NOX_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_NOX);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_SO2_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_SO2 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_SO2_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_SO2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_Inten_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_Inten = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_Inten_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_Inten);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_FlaCon_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_FlaCon = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_FlaCon_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_FlaCon);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_SmoCon_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_SmoCon = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_SmoCon_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_SmoCon);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_DuffCon_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_DuffCon = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_DuffCon_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_DuffCon);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_HSFBCon_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_HSFBCon = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_HSFBCon_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_HSFBCon);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_rm_Lit_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_rm_Lit = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_rm_Lit_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_rm_Lit);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_rm_1Hr_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_rm_1Hr = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_rm_1Hr_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_rm_1Hr);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_rm_10Hr_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_rm_10Hr = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_rm_10Hr_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_rm_10Hr);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_rm_100Hr_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_rm_100Hr = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_rm_100Hr_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_rm_100Hr);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_rm_1kHr_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_rm_1kHr = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_rm_1kHr_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_rm_1kHr);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_Lit_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_cn_Lit = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_Lit_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_cn_Lit);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_1Hr_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_cn_1Hr = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_1Hr_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_cn_1Hr);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_10Hr_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_cn_10Hr = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_10Hr_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_cn_10Hr);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_100Hr_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_cn_100Hr = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_100Hr_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_cn_100Hr);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_1kHr_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_cn_1kHr = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_1kHr_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_cn_1kHr);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_1kHrFla_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_cn_1kHrFla = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_1kHrFla_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_cn_1kHrFla);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_1kHrSmo_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_cn_1kHrSmo = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_1kHrSmo_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_cn_1kHrSmo);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_pcSmo_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_pcSmo = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_pcSmo_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_pcSmo);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_LitSmoPerCent_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_cn_LitSmoPerCent = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_LitSmoPerCent_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_cn_LitSmoPerCent);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_1HrSmoPerCent_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_cn_1HrSmoPerCent = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_1HrSmoPerCent_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_cn_1HrSmoPerCent);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_10HrSmoPerCent_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_cn_10HrSmoPerCent = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_10HrSmoPerCent_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_cn_10HrSmoPerCent);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_100HrSmoPerCent_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_cn_100HrSmoPerCent = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_100HrSmoPerCent_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_cn_100HrSmoPerCent);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_1kSmoPerCent_set(void * jarg1, float jarg2) {
+  d_SGV *arg1 = 0 ;
+  float arg2 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float)jarg2; 
+  if (arg1) (arg1)->f_cn_1kSmoPerCent = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_d_SGV_f_cn_1kSmoPerCent_get(void * jarg1) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (float) ((arg1)->f_cn_1kSmoPerCent);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEMcore_new_d_SGV() {
+  void * jresult ;
+  d_SGV *result = 0 ;
+  
+  result = (d_SGV *)new d_SGV();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_delete_d_SGV(void * jarg1) {
+  d_SGV *arg1 = 0 ;
+  
+  arg1 = (d_SGV *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_SGV_PM2_5_get() {
+  char * jresult ;
+  char *result = 0 ;
+  
+  result = (char *)(char *)("PM 2.5");
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_SGV_PM10_get() {
+  char * jresult ;
+  char *result = 0 ;
+  
+  result = (char *)(char *)("PM 10");
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_SGV_CH4_get() {
+  char * jresult ;
+  char *result = 0 ;
+  
+  result = (char *)(char *)("CH 4");
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_SGV_CO2_get() {
+  char * jresult ;
+  char *result = 0 ;
+  
+  result = (char *)(char *)("CO 2");
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_SGV_CO_get() {
+  char * jresult ;
+  char *result = 0 ;
+  
+  result = (char *)(char *)("CO");
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_SGV_NOX_get() {
+  char * jresult ;
+  char *result = 0 ;
+  
+  result = (char *)(char *)("NOX");
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_SGV_SO2_get() {
+  char * jresult ;
+  char *result = 0 ;
+  
+  result = (char *)(char *)("SO2");
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT char * SWIGSTDCALL CSharp_FOFEMcore_e_SGV_Inten_get() {
+  char * jresult ;
+  char *result = 0 ;
+  
+  result = (char *)(char *)("Intensity");
+  jresult = SWIG_csharp_string_callback((const char *)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_SGV_Init() {
+  int jresult ;
+  int result;
+  
+  result = (int)SGV_Init();
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_SGV_GetTimPPA(int jarg1, void * jarg2, void * jarg3) {
+  int jresult ;
+  int arg1 ;
+  float *arg2 = 0 ;
+  float *arg3 = 0 ;
+  int result;
+  
+  arg1 = (int)jarg1; 
+  arg2 = (float *)jarg2; 
+  arg3 = (float *)jarg3; 
+  result = (int)SGV_GetTimPPA(arg1,arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_SGV_Set(void * jarg1) {
+  int jresult ;
+  d_SGV *arg1 = 0 ;
+  int result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  result = (int)SGV_Set(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_SGV_Prepare(char * jarg1, void * jarg2, void * jarg3) {
+  float jresult ;
+  char *arg1 = (char *)0 ;
+  float *arg2 = 0 ;
+  float *arg3 = 0 ;
+  float result;
+  
+  arg1 = (char *)jarg1; 
+  arg2 = (float *)jarg2; 
+  arg3 = (float *)jarg3; 
+  result = (float)SGV_Prepare(arg1,arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_SGV_Get(int jarg1, void * jarg2) {
+  int jresult ;
+  int arg1 ;
+  d_SGV *arg2 = 0 ;
+  int result;
+  
+  arg1 = (int)jarg1; 
+  arg2 = (d_SGV *)jarg2; 
+  result = (int)SGV_Get(arg1,arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_SGV_BurnOutTime(char * jarg1) {
+  float jresult ;
+  char *arg1 = (char *)0 ;
+  float result;
+  
+  arg1 = (char *)jarg1; 
+  result = (float)SGV_BurnOutTime(arg1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore__Con(void * jarg1, char * jarg2, void * jarg3) {
+  float jresult ;
+  d_SGV *arg1 = 0 ;
+  char *arg2 = (char *)0 ;
+  float *arg3 = 0 ;
+  float result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (char *)jarg2; 
+  arg3 = (float *)jarg3; 
+  result = (float)_Con(arg1,arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_SGV_GetFS(char * jarg1, void * jarg2, void * jarg3) {
+  int jresult ;
+  char *arg1 = (char *)0 ;
+  float *arg2 = 0 ;
+  float *arg3 = 0 ;
+  int result;
+  
+  arg1 = (char *)jarg1; 
+  arg2 = (float *)jarg2; 
+  arg3 = (float *)jarg3; 
+  result = (int)SGV_GetFS(arg1,arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_SGV_FlaSmoDuf(void * jarg1, void * jarg2, void * jarg3, void * jarg4) {
+  int jresult ;
+  d_SGV *arg1 = 0 ;
+  float *arg2 = 0 ;
+  float *arg3 = 0 ;
+  float *arg4 = 0 ;
+  int result;
+  
+  arg1 = (d_SGV *)jarg1; 
+  arg2 = (float *)jarg2; 
+  arg3 = (float *)jarg3; 
+  arg4 = (float *)jarg4; 
+  result = (int)SGV_FlaSmoDuf(arg1,arg2,arg3,arg4);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_ConsumeManager(void * jarg1, void * jarg2, char * jarg3) {
+  int jresult ;
+  d_CI *arg1 = 0 ;
+  d_CO *arg2 = 0 ;
+  char *arg3 = (char *)0 ;
+  int result;
+  
+  arg1 = (d_CI *)jarg1; 
+  arg2 = (d_CO *)jarg2; 
+  arg3 = (char *)jarg3; 
+  result = (int)CM_Mngr(arg1,arg2,arg3);
   jresult = result; 
   return jresult;
 }
