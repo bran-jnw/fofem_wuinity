@@ -8,22 +8,22 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace FOFEM {
+namespace FOFEMcore {
 
-public class d_SI : global::System.IDisposable {
+public class SoilDataInput : global::System.IDisposable {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
   protected bool swigCMemOwn;
 
-  internal d_SI(global::System.IntPtr cPtr, bool cMemoryOwn) {
+  internal SoilDataInput(global::System.IntPtr cPtr, bool cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
   }
 
-  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(d_SI obj) {
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SoilDataInput obj) {
     return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
   }
 
-  internal static global::System.Runtime.InteropServices.HandleRef swigRelease(d_SI obj) {
+  internal static global::System.Runtime.InteropServices.HandleRef swigRelease(SoilDataInput obj) {
     if (obj != null) {
       if (!obj.swigCMemOwn)
         throw new global::System.ApplicationException("Cannot release ownership as memory is not owned");
@@ -36,7 +36,7 @@ public class d_SI : global::System.IDisposable {
     }
   }
 
-  ~d_SI() {
+  ~SoilDataInput() {
     Dispose(false);
   }
 
@@ -50,7 +50,7 @@ public class d_SI : global::System.IDisposable {
       if (swigCPtr.Handle != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          FOFEMPINVOKE.delete_d_SI(swigCPtr);
+          FOFEMPINVOKE.delete_SoilDataInput(swigCPtr);
         }
         swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
       }
@@ -59,110 +59,100 @@ public class d_SI : global::System.IDisposable {
 
   public float f_DufLoaPre {
     set {
-      FOFEMPINVOKE.d_SI_f_DufLoaPre_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataInput_f_DufLoaPre_set(swigCPtr, value);
     } 
     get {
-      float ret = FOFEMPINVOKE.d_SI_f_DufLoaPre_get(swigCPtr);
+      float ret = FOFEMPINVOKE.SoilDataInput_f_DufLoaPre_get(swigCPtr);
       return ret;
     } 
   }
 
   public float f_DufConPer {
     set {
-      FOFEMPINVOKE.d_SI_f_DufConPer_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataInput_f_DufConPer_set(swigCPtr, value);
     } 
     get {
-      float ret = FOFEMPINVOKE.d_SI_f_DufConPer_get(swigCPtr);
+      float ret = FOFEMPINVOKE.SoilDataInput_f_DufConPer_get(swigCPtr);
       return ret;
     } 
   }
 
   public float f_DufMoi {
     set {
-      FOFEMPINVOKE.d_SI_f_DufMoi_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataInput_f_DufMoi_set(swigCPtr, value);
     } 
     get {
-      float ret = FOFEMPINVOKE.d_SI_f_DufMoi_get(swigCPtr);
+      float ret = FOFEMPINVOKE.SoilDataInput_f_DufMoi_get(swigCPtr);
       return ret;
     } 
   }
 
   public float f_DufDepPre {
     set {
-      FOFEMPINVOKE.d_SI_f_DufDepPre_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataInput_f_DufDepPre_set(swigCPtr, value);
     } 
     get {
-      float ret = FOFEMPINVOKE.d_SI_f_DufDepPre_get(swigCPtr);
+      float ret = FOFEMPINVOKE.SoilDataInput_f_DufDepPre_get(swigCPtr);
       return ret;
     } 
   }
 
   public float f_DufDepPos {
     set {
-      FOFEMPINVOKE.d_SI_f_DufDepPos_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataInput_f_DufDepPos_set(swigCPtr, value);
     } 
     get {
-      float ret = FOFEMPINVOKE.d_SI_f_DufDepPos_get(swigCPtr);
+      float ret = FOFEMPINVOKE.SoilDataInput_f_DufDepPos_get(swigCPtr);
       return ret;
     } 
   }
 
   public float f_SoilMoist {
     set {
-      FOFEMPINVOKE.d_SI_f_SoilMoist_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataInput_f_SoilMoist_set(swigCPtr, value);
     } 
     get {
-      float ret = FOFEMPINVOKE.d_SI_f_SoilMoist_get(swigCPtr);
-      return ret;
-    } 
-  }
-
-  public float f_AmbAirTmp {
-    set {
-      FOFEMPINVOKE.d_SI_f_AmbAirTmp_set(swigCPtr, value);
-    } 
-    get {
-      float ret = FOFEMPINVOKE.d_SI_f_AmbAirTmp_get(swigCPtr);
+      float ret = FOFEMPINVOKE.SoilDataInput_f_SoilMoist_get(swigCPtr);
       return ret;
     } 
   }
 
   public string cr_BrnIg {
     set {
-      FOFEMPINVOKE.d_SI_cr_BrnIg_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataInput_cr_BrnIg_set(swigCPtr, value);
     } 
     get {
-      string ret = FOFEMPINVOKE.d_SI_cr_BrnIg_get(swigCPtr);
+      string ret = FOFEMPINVOKE.SoilDataInput_cr_BrnIg_get(swigCPtr);
       return ret;
     } 
   }
 
   public string cr_SoilType {
     set {
-      FOFEMPINVOKE.d_SI_cr_SoilType_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataInput_cr_SoilType_set(swigCPtr, value);
     } 
     get {
-      string ret = FOFEMPINVOKE.d_SI_cr_SoilType_get(swigCPtr);
+      string ret = FOFEMPINVOKE.SoilDataInput_cr_SoilType_get(swigCPtr);
       return ret;
     } 
   }
 
   public string cr_MoistCond {
     set {
-      FOFEMPINVOKE.d_SI_cr_MoistCond_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataInput_cr_MoistCond_set(swigCPtr, value);
     } 
     get {
-      string ret = FOFEMPINVOKE.d_SI_cr_MoistCond_get(swigCPtr);
+      string ret = FOFEMPINVOKE.SoilDataInput_cr_MoistCond_get(swigCPtr);
       return ret;
     } 
   }
 
   public SWIGTYPE_p_float ar_FI {
     set {
-      FOFEMPINVOKE.d_SI_ar_FI_set(swigCPtr, SWIGTYPE_p_float.getCPtr(value));
+      FOFEMPINVOKE.SoilDataInput_ar_FI_set(swigCPtr, SWIGTYPE_p_float.getCPtr(value));
     } 
     get {
-      global::System.IntPtr cPtr = FOFEMPINVOKE.d_SI_ar_FI_get(swigCPtr);
+      global::System.IntPtr cPtr = FOFEMPINVOKE.SoilDataInput_ar_FI_get(swigCPtr);
       SWIGTYPE_p_float ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_float(cPtr, false);
       return ret;
     } 
@@ -170,35 +160,35 @@ public class d_SI : global::System.IDisposable {
 
   public float f_SoilWlEff {
     set {
-      FOFEMPINVOKE.d_SI_f_SoilWlEff_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataInput_f_SoilWlEff_set(swigCPtr, value);
     } 
     get {
-      float ret = FOFEMPINVOKE.d_SI_f_SoilWlEff_get(swigCPtr);
+      float ret = FOFEMPINVOKE.SoilDataInput_f_SoilWlEff_get(swigCPtr);
       return ret;
     } 
   }
 
   public float f_SoilHsEff {
     set {
-      FOFEMPINVOKE.d_SI_f_SoilHsEff_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataInput_f_SoilHsEff_set(swigCPtr, value);
     } 
     get {
-      float ret = FOFEMPINVOKE.d_SI_f_SoilHsEff_get(swigCPtr);
+      float ret = FOFEMPINVOKE.SoilDataInput_f_SoilHsEff_get(swigCPtr);
       return ret;
     } 
   }
 
   public float f_SoilDuffEff {
     set {
-      FOFEMPINVOKE.d_SI_f_SoilDuffEff_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataInput_f_SoilDuffEff_set(swigCPtr, value);
     } 
     get {
-      float ret = FOFEMPINVOKE.d_SI_f_SoilDuffEff_get(swigCPtr);
+      float ret = FOFEMPINVOKE.SoilDataInput_f_SoilDuffEff_get(swigCPtr);
       return ret;
     } 
   }
 
-  public d_SI() : this(FOFEMPINVOKE.new_d_SI(), true) {
+  public SoilDataInput() : this(FOFEMPINVOKE.new_SoilDataInput(), true) {
   }
 
 }

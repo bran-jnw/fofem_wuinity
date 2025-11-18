@@ -8,175 +8,179 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace FOFEM {
+namespace FOFEMcore {
 
 public class FOFEM {
-  public static void CI_Init(d_CI a_CI) {
-    FOFEMPINVOKE.CI_Init(d_CI.getCPtr(a_CI));
+  public static void CI_Init(ConsumeDataInput a_CI) {
+    FOFEMPINVOKE.CI_Init(ConsumeDataInput.getCPtr(a_CI));
   }
 
-  public static int CI_isSpring(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isSpring(d_CI.getCPtr(a_CI));
+  public static int CI_isSpring(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isSpring(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isFall(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isFall(d_CI.getCPtr(a_CI));
+  public static int CI_isFall(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isFall(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isWinter(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isWinter(d_CI.getCPtr(a_CI));
+  public static int CI_isWinter(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isWinter(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isSummer(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isSummer(d_CI.getCPtr(a_CI));
+  public static int CI_isSummer(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isSummer(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isSeason(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isSeason(d_CI.getCPtr(a_CI));
+  public static int CI_isSeason(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isSeason(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isShrubGroup(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isShrubGroup(d_CI.getCPtr(a_CI));
+  public static int CI_isShrubGroup(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isShrubGroup(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isShrubGroupChaparral(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isShrubGroupChaparral(d_CI.getCPtr(a_CI));
+  public static int CI_isShrubGroupChaparral(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isShrubGroupChaparral(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isGrassGroup(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isGrassGroup(d_CI.getCPtr(a_CI));
+  public static int CI_isGrassGroup(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isGrassGroup(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isSageBrush(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isSageBrush(d_CI.getCPtr(a_CI));
+  public static int CI_isSageBrush(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isSageBrush(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isPocosin(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isPocosin(d_CI.getCPtr(a_CI));
+  public static int CI_isPocosin(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isPocosin(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isPonderosa(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isPonderosa(d_CI.getCPtr(a_CI));
+  public static int CI_isPonderosa(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isPonderosa(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isWhiPinHem(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isWhiPinHem(d_CI.getCPtr(a_CI));
+  public static int CI_isWhiPinHem(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isWhiPinHem(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isRedJacPin(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isRedJacPin(d_CI.getCPtr(a_CI));
+  public static int CI_isRedJacPin(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isRedJacPin(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isBalBRWSpr(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isBalBRWSpr(d_CI.getCPtr(a_CI));
+  public static int CI_isBalBRWSpr(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isBalBRWSpr(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isCoastPlain(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isCoastPlain(d_CI.getCPtr(a_CI));
+  public static int CI_isCoastPlain(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isCoastPlain(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isPinFlaWoo(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isPinFlaWoo(d_CI.getCPtr(a_CI));
+  public static int CI_isPinFlaWoo(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isPinFlaWoo(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isCoverGroup(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isCoverGroup(d_CI.getCPtr(a_CI));
+  public static int CI_isCoverGroup(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isCoverGroup(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isSouthEast(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isSouthEast(d_CI.getCPtr(a_CI));
+  public static int CI_isSouthEast(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isSouthEast(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isInteriorWest(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isInteriorWest(d_CI.getCPtr(a_CI));
+  public static int CI_isInteriorWest(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isInteriorWest(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isPacificWest(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isPacificWest(d_CI.getCPtr(a_CI));
+  public static int CI_isPacificWest(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isPacificWest(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isNorthEast(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isNorthEast(d_CI.getCPtr(a_CI));
+  public static int CI_isNorthEast(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isNorthEast(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isNatural(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isNatural(d_CI.getCPtr(a_CI));
+  public static int CI_isNatural(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isNatural(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isPiles(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isPiles(d_CI.getCPtr(a_CI));
+  public static int CI_isPiles(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isPiles(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isSlash(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isSlash(d_CI.getCPtr(a_CI));
+  public static int CI_isSlash(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isSlash(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isDufEntire(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isDufEntire(d_CI.getCPtr(a_CI));
+  public static int CI_isDufEntire(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isDufEntire(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isDufLower(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isDufLower(d_CI.getCPtr(a_CI));
+  public static int CI_isDufLower(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isDufLower(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isDufNFDR(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isDufNFDR(d_CI.getCPtr(a_CI));
+  public static int CI_isDufNFDR(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isDufNFDR(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isDufAdjNFDR(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isDufAdjNFDR(d_CI.getCPtr(a_CI));
+  public static int CI_isDufAdjNFDR(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isDufAdjNFDR(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isDufMethod(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isDufMethod(d_CI.getCPtr(a_CI));
+  public static int CI_isDufMethod(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isDufMethod(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_isDuffWet(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_isDuffWet(d_CI.getCPtr(a_CI));
+  public static int CI_isDuffWet(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_isDuffWet(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static void CI_Display(d_CI a_CI) {
-    FOFEMPINVOKE.CI_Display(d_CI.getCPtr(a_CI));
+  public static void CI_Display(ConsumeDataInput a_CI) {
+    FOFEMPINVOKE.CI_Display(ConsumeDataInput.getCPtr(a_CI));
   }
 
-  public static float CI_MaxLoad(d_CI a_CI) {
-    float ret = FOFEMPINVOKE.CI_MaxLoad(d_CI.getCPtr(a_CI));
+  public static float CI_MaxLoad(ConsumeDataInput a_CI) {
+    float ret = FOFEMPINVOKE.CI_MaxLoad(ConsumeDataInput.getCPtr(a_CI));
     return ret;
   }
 
-  public static int CI_OnlyDuff(d_CI a_CI) {
-    int ret = FOFEMPINVOKE.CI_OnlyDuff(d_CI.getCPtr(a_CI));
+  public static int CI_OnlyDuff(ConsumeDataInput a_CI) {
+    int ret = FOFEMPINVOKE.CI_OnlyDuff(ConsumeDataInput.getCPtr(a_CI));
     return ret;
+  }
+
+  public static void CO_Init(ConsumeDataOutput a_CO) {
+    FOFEMPINVOKE.CO_Init(ConsumeDataOutput.getCPtr(a_CO));
   }
 
   public static SWIGTYPE_p_FILE SI_fopen(string cr_FN, string cr) {
@@ -197,16 +201,16 @@ public class FOFEM {
     FOFEMPINVOKE.SI_fclose(SWIGTYPE_p_FILE.getCPtr(fh));
   }
 
-  public static void SI_Init(d_SI a_SI) {
-    FOFEMPINVOKE.SI_Init(d_SI.getCPtr(a_SI));
+  public static void SI_Init(SoilDataInput a_SI) {
+    FOFEMPINVOKE.SI_Init(SoilDataInput.getCPtr(a_SI));
   }
 
-  public static void SO_Init(d_SO a_SO) {
-    FOFEMPINVOKE.SO_Init(d_SO.getCPtr(a_SO));
+  public static void SO_Init(SoilDataOutput a_SO) {
+    FOFEMPINVOKE.SO_Init(SoilDataOutput.getCPtr(a_SO));
   }
 
-  public static int SH_Mngr(d_SI a_SI, d_SO a_SO, SWIGTYPE_p_float fr_FI, SWIGTYPE_p_float fr_FIhs, string cr_TmpPth, string cr_ErrMes) {
-    int ret = FOFEMPINVOKE.SH_Mngr(d_SI.getCPtr(a_SI), d_SO.getCPtr(a_SO), SWIGTYPE_p_float.getCPtr(fr_FI), SWIGTYPE_p_float.getCPtr(fr_FIhs), cr_TmpPth, cr_ErrMes);
+  public static int SH_Mngr(SoilDataInput a_SI, SoilDataOutput a_SO, SWIGTYPE_p_float fr_FI, SWIGTYPE_p_float fr_FIhs, string cr_TmpPth, string cr_ErrMes) {
+    int ret = FOFEMPINVOKE.SH_Mngr(SoilDataInput.getCPtr(a_SI), SoilDataOutput.getCPtr(a_SO), SWIGTYPE_p_float.getCPtr(fr_FI), SWIGTYPE_p_float.getCPtr(fr_FIhs), cr_TmpPth, cr_ErrMes);
     return ret;
   }
 
@@ -240,6 +244,61 @@ public class FOFEM {
 
   public static float NES_Get_CriFirInt() {
     float ret = FOFEMPINVOKE.NES_Get_CriFirInt();
+    return ret;
+  }
+
+  public static float GramSqMt_To_Pounds(float f_Gram) {
+    float ret = FOFEMPINVOKE.GramSqMt_To_Pounds(f_Gram);
+    return ret;
+  }
+
+  public static int SGV_Init() {
+    int ret = FOFEMPINVOKE.SGV_Init();
+    return ret;
+  }
+
+  public static int SGV_GetTimPPA(int iX, SWIGTYPE_p_float af_Time, SWIGTYPE_p_float af_Amt) {
+    int ret = FOFEMPINVOKE.SGV_GetTimPPA(iX, SWIGTYPE_p_float.getCPtr(af_Time), SWIGTYPE_p_float.getCPtr(af_Amt));
+    return ret;
+  }
+
+  public static int SGV_Set(d_SGV a_SGV) {
+    int ret = FOFEMPINVOKE.SGV_Set(d_SGV.getCPtr(a_SGV));
+    return ret;
+  }
+
+  public static float SGV_Prepare(string cr_Name, SWIGTYPE_p_float af_MaxTim, SWIGTYPE_p_float af_MaxAmt) {
+    float ret = FOFEMPINVOKE.SGV_Prepare(cr_Name, SWIGTYPE_p_float.getCPtr(af_MaxTim), SWIGTYPE_p_float.getCPtr(af_MaxAmt));
+    return ret;
+  }
+
+  public static int SGV_Get(int iX, d_SGV a_SGV) {
+    int ret = FOFEMPINVOKE.SGV_Get(iX, d_SGV.getCPtr(a_SGV));
+    return ret;
+  }
+
+  public static float SGV_BurnOutTime(string cr_Cmp) {
+    float ret = FOFEMPINVOKE.SGV_BurnOutTime(cr_Cmp);
+    return ret;
+  }
+
+  public static float _Con(d_SGV a, string cr_Cmp, SWIGTYPE_p_float af_SmoPercent) {
+    float ret = FOFEMPINVOKE._Con(d_SGV.getCPtr(a), cr_Cmp, SWIGTYPE_p_float.getCPtr(af_SmoPercent));
+    return ret;
+  }
+
+  public static int SGV_GetFS(string cr_Cmp, SWIGTYPE_p_float af_Fla, SWIGTYPE_p_float af_Smo) {
+    int ret = FOFEMPINVOKE.SGV_GetFS(cr_Cmp, SWIGTYPE_p_float.getCPtr(af_Fla), SWIGTYPE_p_float.getCPtr(af_Smo));
+    return ret;
+  }
+
+  public static int SGV_FlaSmoDuf(d_SGV a, SWIGTYPE_p_float af_Fla, SWIGTYPE_p_float af_Smo, SWIGTYPE_p_float af_Duf) {
+    int ret = FOFEMPINVOKE.SGV_FlaSmoDuf(d_SGV.getCPtr(a), SWIGTYPE_p_float.getCPtr(af_Fla), SWIGTYPE_p_float.getCPtr(af_Smo), SWIGTYPE_p_float.getCPtr(af_Duf));
+    return ret;
+  }
+
+  public static int ConsumeManager(ConsumeDataInput a_CI, ConsumeDataOutput a_CO, string cr_ErrMes) {
+    int ret = FOFEMPINVOKE.ConsumeManager(ConsumeDataInput.getCPtr(a_CI), ConsumeDataOutput.getCPtr(a_CO), cr_ErrMes);
     return ret;
   }
 
@@ -367,6 +426,15 @@ public class FOFEM {
   public static readonly string e_DefFlaGrp = FOFEMPINVOKE.e_DefFlaGrp_get();
   public static readonly string e_DefDufGrp = FOFEMPINVOKE.e_DefDufGrp_get();
   public static readonly string e_DefSmoGrp = FOFEMPINVOKE.e_DefSmoGrp_get();
+  public static readonly int eC_SGV = FOFEMPINVOKE.eC_SGV_get();
+  public static readonly string e_SGV_PM2_5 = FOFEMPINVOKE.e_SGV_PM2_5_get();
+  public static readonly string e_SGV_PM10 = FOFEMPINVOKE.e_SGV_PM10_get();
+  public static readonly string e_SGV_CH4 = FOFEMPINVOKE.e_SGV_CH4_get();
+  public static readonly string e_SGV_CO2 = FOFEMPINVOKE.e_SGV_CO2_get();
+  public static readonly string e_SGV_CO = FOFEMPINVOKE.e_SGV_CO_get();
+  public static readonly string e_SGV_NOX = FOFEMPINVOKE.e_SGV_NOX_get();
+  public static readonly string e_SGV_SO2 = FOFEMPINVOKE.e_SGV_SO2_get();
+  public static readonly string e_SGV_Inten = FOFEMPINVOKE.e_SGV_Inten_get();
 }
 
 }

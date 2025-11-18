@@ -8,22 +8,22 @@
 // the SWIG interface file instead.
 //------------------------------------------------------------------------------
 
-namespace FOFEM {
+namespace FOFEMcore {
 
-public class d_SO : global::System.IDisposable {
+public class SoilDataOutput : global::System.IDisposable {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
   protected bool swigCMemOwn;
 
-  internal d_SO(global::System.IntPtr cPtr, bool cMemoryOwn) {
+  internal SoilDataOutput(global::System.IntPtr cPtr, bool cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
   }
 
-  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(d_SO obj) {
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SoilDataOutput obj) {
     return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
   }
 
-  internal static global::System.Runtime.InteropServices.HandleRef swigRelease(d_SO obj) {
+  internal static global::System.Runtime.InteropServices.HandleRef swigRelease(SoilDataOutput obj) {
     if (obj != null) {
       if (!obj.swigCMemOwn)
         throw new global::System.ApplicationException("Cannot release ownership as memory is not owned");
@@ -36,7 +36,7 @@ public class d_SO : global::System.IDisposable {
     }
   }
 
-  ~d_SO() {
+  ~SoilDataOutput() {
     Dispose(false);
   }
 
@@ -50,7 +50,7 @@ public class d_SO : global::System.IDisposable {
       if (swigCPtr.Handle != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          FOFEMPINVOKE.delete_d_SO(swigCPtr);
+          FOFEMPINVOKE.delete_SoilDataOutput(swigCPtr);
         }
         swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
       }
@@ -59,10 +59,10 @@ public class d_SO : global::System.IDisposable {
 
   public SWIGTYPE_p_int ir_Temp {
     set {
-      FOFEMPINVOKE.d_SO_ir_Temp_set(swigCPtr, SWIGTYPE_p_int.getCPtr(value));
+      FOFEMPINVOKE.SoilDataOutput_ir_Temp_set(swigCPtr, SWIGTYPE_p_int.getCPtr(value));
     } 
     get {
-      global::System.IntPtr cPtr = FOFEMPINVOKE.d_SO_ir_Temp_get(swigCPtr);
+      global::System.IntPtr cPtr = FOFEMPINVOKE.SoilDataOutput_ir_Temp_get(swigCPtr);
       SWIGTYPE_p_int ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_int(cPtr, false);
       return ret;
     } 
@@ -70,10 +70,10 @@ public class d_SO : global::System.IDisposable {
 
   public SWIGTYPE_p_int ir_TimSec {
     set {
-      FOFEMPINVOKE.d_SO_ir_TimSec_set(swigCPtr, SWIGTYPE_p_int.getCPtr(value));
+      FOFEMPINVOKE.SoilDataOutput_ir_TimSec_set(swigCPtr, SWIGTYPE_p_int.getCPtr(value));
     } 
     get {
-      global::System.IntPtr cPtr = FOFEMPINVOKE.d_SO_ir_TimSec_get(swigCPtr);
+      global::System.IntPtr cPtr = FOFEMPINVOKE.SoilDataOutput_ir_TimSec_get(swigCPtr);
       SWIGTYPE_p_int ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_int(cPtr, false);
       return ret;
     } 
@@ -81,65 +81,65 @@ public class d_SO : global::System.IDisposable {
 
   public float f_cDufPre {
     set {
-      FOFEMPINVOKE.d_SO_f_cDufPre_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataOutput_f_cDufPre_set(swigCPtr, value);
     } 
     get {
-      float ret = FOFEMPINVOKE.d_SO_f_cDufPre_get(swigCPtr);
+      float ret = FOFEMPINVOKE.SoilDataOutput_f_cDufPre_get(swigCPtr);
       return ret;
     } 
   }
 
   public float f_cDufPost {
     set {
-      FOFEMPINVOKE.d_SO_f_cDufPost_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataOutput_f_cDufPost_set(swigCPtr, value);
     } 
     get {
-      float ret = FOFEMPINVOKE.d_SO_f_cDufPost_get(swigCPtr);
+      float ret = FOFEMPINVOKE.SoilDataOutput_f_cDufPost_get(swigCPtr);
       return ret;
     } 
   }
 
   public float f_Heatpc {
     set {
-      FOFEMPINVOKE.d_SO_f_Heatpc_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataOutput_f_Heatpc_set(swigCPtr, value);
     } 
     get {
-      float ret = FOFEMPINVOKE.d_SO_f_Heatpc_get(swigCPtr);
+      float ret = FOFEMPINVOKE.SoilDataOutput_f_Heatpc_get(swigCPtr);
       return ret;
     } 
   }
 
   public int i_LayMaxDeg1 {
     set {
-      FOFEMPINVOKE.d_SO_i_LayMaxDeg1_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataOutput_i_LayMaxDeg1_set(swigCPtr, value);
     } 
     get {
-      int ret = FOFEMPINVOKE.d_SO_i_LayMaxDeg1_get(swigCPtr);
+      int ret = FOFEMPINVOKE.SoilDataOutput_i_LayMaxDeg1_get(swigCPtr);
       return ret;
     } 
   }
 
   public int i_LayMaxDeg2 {
     set {
-      FOFEMPINVOKE.d_SO_i_LayMaxDeg2_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataOutput_i_LayMaxDeg2_set(swigCPtr, value);
     } 
     get {
-      int ret = FOFEMPINVOKE.d_SO_i_LayMaxDeg2_get(swigCPtr);
+      int ret = FOFEMPINVOKE.SoilDataOutput_i_LayMaxDeg2_get(swigCPtr);
       return ret;
     } 
   }
 
   public string cr_Model {
     set {
-      FOFEMPINVOKE.d_SO_cr_Model_set(swigCPtr, value);
+      FOFEMPINVOKE.SoilDataOutput_cr_Model_set(swigCPtr, value);
     } 
     get {
-      string ret = FOFEMPINVOKE.d_SO_cr_Model_get(swigCPtr);
+      string ret = FOFEMPINVOKE.SoilDataOutput_cr_Model_get(swigCPtr);
       return ret;
     } 
   }
 
-  public d_SO() : this(FOFEMPINVOKE.new_d_SO(), true) {
+  public SoilDataOutput() : this(FOFEMPINVOKE.new_SoilDataOutput(), true) {
   }
 
 }

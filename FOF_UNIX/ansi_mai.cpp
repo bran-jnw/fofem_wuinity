@@ -59,13 +59,13 @@ int   main ()
 {*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}{*}*/
 int  ConEmiSoi ()
 {
-int i;
-char cr_ErrMes[3000];
-/* Declare input and output structures                                       */
-d_CI s_CI;                             /* Consumed inputs                    */
-d_CO s_CO;                             /* Consumed outputs                   */
-d_SI s_SI;                             /* Soil inputs                        */
-d_SO s_SO;                             /* Soil outputs                       */
+    int i;
+    char cr_ErrMes[3000];
+    /* Declare input and output structures                                       */
+    d_CI s_CI;                             /* Consumed inputs                    */
+    d_CO s_CO;                             /* Consumed outputs                   */
+    d_SI s_SI;                             /* Soil inputs                        */
+    d_SO s_SO;                             /* Soil outputs                       */
 
    CI_Init (&s_CI);                     /* Init Consumed Input Struct        */
    CO_Init (&s_CO);                     /* Init Consumed Output Struct       */
