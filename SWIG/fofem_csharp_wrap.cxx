@@ -361,12 +361,136 @@ template <typename T> T SwigValueInit() {
 	#include "..\FOF_UNIX\FOF_CM.H"
 
 
+static int *new_intArray(size_t nelements) { 
+  return new int[nelements](); 
+}
+
+static void delete_intArray(int *ary) { 
+  delete [] ary; 
+}
+
+static int intArray_getitem(int *ary, size_t index) {
+    return ary[index];
+}
+static void intArray_setitem(int *ary, size_t index, int value) {
+    ary[index] = value;
+}
+
+
+static float *new_floatArray(size_t nelements) { 
+  return new float[nelements](); 
+}
+
+static void delete_floatArray(float *ary) { 
+  delete [] ary; 
+}
+
+static float floatArray_getitem(float *ary, size_t index) {
+    return ary[index];
+}
+static void floatArray_setitem(float *ary, size_t index, float value) {
+    ary[index] = value;
+}
+
+
 #include <string.h>
 
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEMcore_new_intArray(unsigned int jarg1) {
+  void * jresult ;
+  size_t arg1 ;
+  int *result = 0 ;
+  
+  arg1 = (size_t)jarg1; 
+  result = (int *)new_intArray(SWIG_STD_MOVE(arg1));
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_delete_intArray(void * jarg1) {
+  int *arg1 = 0 ;
+  
+  arg1 = (int *)jarg1; 
+  delete_intArray(arg1);
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_FOFEMcore_intArray_getitem(void * jarg1, unsigned int jarg2) {
+  int jresult ;
+  int *arg1 = 0 ;
+  size_t arg2 ;
+  int result;
+  
+  arg1 = (int *)jarg1; 
+  arg2 = (size_t)jarg2; 
+  result = (int)intArray_getitem(arg1,SWIG_STD_MOVE(arg2));
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_intArray_setitem(void * jarg1, unsigned int jarg2, int jarg3) {
+  int *arg1 = 0 ;
+  size_t arg2 ;
+  int arg3 ;
+  
+  arg1 = (int *)jarg1; 
+  arg2 = (size_t)jarg2; 
+  arg3 = (int)jarg3; 
+  intArray_setitem(arg1,SWIG_STD_MOVE(arg2),arg3);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_FOFEMcore_new_floatArray(unsigned int jarg1) {
+  void * jresult ;
+  size_t arg1 ;
+  float *result = 0 ;
+  
+  arg1 = (size_t)jarg1; 
+  result = (float *)new_floatArray(SWIG_STD_MOVE(arg1));
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_delete_floatArray(void * jarg1) {
+  float *arg1 = 0 ;
+  
+  arg1 = (float *)jarg1; 
+  delete_floatArray(arg1);
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_FOFEMcore_floatArray_getitem(void * jarg1, unsigned int jarg2) {
+  float jresult ;
+  float *arg1 = 0 ;
+  size_t arg2 ;
+  float result;
+  
+  arg1 = (float *)jarg1; 
+  arg2 = (size_t)jarg2; 
+  result = (float)floatArray_getitem(arg1,SWIG_STD_MOVE(arg2));
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_FOFEMcore_floatArray_setitem(void * jarg1, unsigned int jarg2, float jarg3) {
+  float *arg1 = 0 ;
+  size_t arg2 ;
+  float arg3 ;
+  
+  arg1 = (float *)jarg1; 
+  arg2 = (size_t)jarg2; 
+  arg3 = (float)jarg3; 
+  floatArray_setitem(arg1,SWIG_STD_MOVE(arg2),arg3);
+}
+
 
 SWIGEXPORT double SWIGSTDCALL CSharp_FOFEMcore_e_DufMin_get() {
   double jresult ;
